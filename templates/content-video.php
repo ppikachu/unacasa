@@ -2,7 +2,7 @@
 <div class="card0 video">
   <a href="<?php the_permalink(); ?>" class="">
     <div class="card-block card-poster-videos" <?php poster_bg(); ?> >
-      <?php if (types_render_field("ganador")==1) echo "<img class='img-fluid' src='/www/wp-content/themes/unacasa_1/dist/images/ganador-01.png'>"; ?>
+      <?php if (types_render_field("ganador")==1) echo "<img class='img-fluid' src='".get_template_directory_uri()."/dist/images/ganador-01.png'>"; ?>
     </div>
   </a>
   <div class="card-block">

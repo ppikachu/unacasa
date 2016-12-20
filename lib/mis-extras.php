@@ -74,7 +74,6 @@ function hex2rgb($hexColor) {
 }
 
 // formato titulos trabajo
-
 add_action( 'init', 'wptuts_buttons' );
 function wptuts_buttons() {
     add_filter( "mce_external_plugins", "wptuts_add_buttons" );
@@ -88,10 +87,3 @@ function wptuts_register_buttons( $buttons ) {
     array_push( $buttons, 'col_texto_izq', 'col_texto_der' ); // importante
     return $buttons;
 }
-
-// loadmore ajax
-
-function my_custom_alm_button_label() {
-	return __('[:es]Quiere ver más?[:en]Want to see more?[:de]Want to see more?');
-}
-add_filter('alm_button_label', 'my_custom_alm_button_label');

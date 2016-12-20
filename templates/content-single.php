@@ -2,7 +2,7 @@
 <div class="entry-content">
       <?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
 <div class="container">
-	<p style="font-weight:700; font-size:35px; line-height:38px; padding:2rem 0;"><?php echo get_the_title();?></p>
+	<h2 class="entry-title"><?php echo get_the_title();?></h2>
     <?php the_content(); ?>
 
     <footer>

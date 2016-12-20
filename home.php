@@ -62,7 +62,7 @@
 <!-- PREVENTA -->
 <?php $args = array('pagename' => 'preventa'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
 <div class="container-fluid spacer-y">
-	<div class="row bg-preventa">
+	<div class="row bg-preventa0 bg-primary">
 		<div class="col-xs-12 col-md poster" <?php poster_bg(); ?>>
 		</div>
 		<div class="col-xs-12 col-md jumbotron">
