@@ -1,0 +1,53 @@
+<!-- IDEAS -->
+<div id="ideas" class="seccion">
+	<nav class="container espacio-y">
+		<span class="h1 text-uppercase"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Ideas</span> Encontrá inspiración para tu hogar
+		<ul class="nav nav-inline pull-xs-right">
+			<li class="nav-item">
+				<a class="nav-link active" href="#ideas">Todas</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Filtrar por</a>
+				<div class="dropdown-menu">
+				<?php
+				$args = array(
+					'taxonomy'      => 'category',
+					'parent'        => 0, // get top level categories
+					'orderby'       => 'name',
+					'order'         => 'ASC',
+					'hierarchical'  => 1,
+					'pad_counts'    => 0
+				);
+				$categories = get_categories( $args );
+				foreach ( $categories as $category ) {
+					echo '<p class="filtro_idea dropdown-item" data-filter="'.$category->slug.'" >'.$category->name.'</p>';
+				}
+				?>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#ideas">Sumá tu idea</a>
+			</li>
+		</ul>
+	</nav>
+ <div class="container">
+	<div class="row">
+	<?php $args = array('post_type' => 'idea','posts_per_page'=> '24');
+		// The Query
+		$the_query = new WP_Query( $args );
+		// The Loop
+		if ( $the_query->have_posts() ) {
+			while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+			$categories = get_the_terms( $post->ID, 'category' );
+			$clases = '';
+			foreach( $categories as $category ) {
+					$clases.=$category->slug.' ';
+			} ?>
+			<div class="<?php echo $clases; ?> col-xs-4 col-md-2" >
+			<a class="card-poster-ideas" href="<?php echo get_permalink();?>" <?php poster_bg(); ?> ></a></div>
+			<?php }
+		} /* Restore original Post Data */ wp_reset_postdata(); ?>
+	</div>
+	</div>
+</div>
