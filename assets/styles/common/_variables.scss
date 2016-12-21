@@ -157,13 +157,13 @@ $font-size-sm:               .875rem !default;
 $font-size-xs:               .75rem !default;
 
 $font-size-h1:               4rem !default;
-$font-size-h2:               2rem !default;
+$font-size-h2:               3rem !default;
 $font-size-h3:               1.75rem !default;
 $font-size-h4:               1.5rem !default;
 $font-size-h5:               1.25rem !default;
 $font-size-h6:               1rem !default;
 
-$display1-size:               1.5rem !default;
+$display1-size:               1.4rem !default;
 $display2-size:               5.5rem !default;
 $display3-size:               3rem !default;
 $display4-size:               2rem !default;
@@ -284,15 +284,15 @@ $btn-border-radius-sm:           $border-radius-sm !default;
 
 // Forms
 
-$input-padding-x:                .75rem !default;
+$input-padding-x:                0 !default;
 $input-padding-y:                .375rem !default;
 
-$input-bg:                       $gray-lighter !default;
-$input-bg-disabled:              $gray-lighter !default;
+$input-bg:                       transparent !default;
+$input-bg-disabled:              transparent !default;
 
 $input-color:                    $gray-dark !default;
 $input-border-color:             transparent !default;
-$input-btn-border-width:         $border-width !default; // For form controls and buttons
+$input-btn-border-width:         0 !default; // For form controls and buttons
 $input-box-shadow:               inset 0 1px 1px rgba(0,0,0,.075) !default;
 
 $input-border-radius:            0 !default;
@@ -316,7 +316,7 @@ $input-height-sm:                (($font-size-sm * $line-height-sm) + ($input-pa
 
 $form-group-margin-bottom:       $spacer-y !default;
 
-$input-group-addon-bg:           $gray-lighter !default;
+$input-group-addon-bg:           transparent !default;
 $input-group-addon-border-color: $input-border-color !default;
 
 $cursor-disabled:                not-allowed !default;
@@ -476,8 +476,8 @@ $state-danger-border:            darken($state-danger-bg, 5%) !default;
 
 
 // Cards
-$card-spacer-x:            1rem !default;
-$card-spacer-y:            .75rem !default;
+$card-spacer-x:            .5rem !default;
+$card-spacer-y:            .5rem !default;
 $card-border-width:        3px !default;
 $card-border-radius:       $border-radius !default;
 $card-border-color:        white !default;

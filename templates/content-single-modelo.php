@@ -3,9 +3,29 @@
   <article <?php post_class(); ?>>
 
   <div class="entry-content">
-      <?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
+    <?php if (types_render_field( "galeria-modelo")) : ?>
+    <div id="carousel-<?php echo $post->post_name; ?>" class="carousel slide" data-ride="carousel">
+
+    	<ol class="carousel-indicators">
+    		<?php $imgs = get_post_meta(get_the_ID(), 'wpcf-galeria-modelo'); $x = count($imgs);
+    		for ($i=0;$i<$x;$i++) {
+    			if ($i==0) $slide_active="active"; else $slide_active="";
+    			echo '<li data-target="#carousel-'.$post->post_name.'" data-slide-to="'.$i.'" class="'.$slide_active.'"></li>';
+    		} ?>
+    	</ol>
+
+      <div class="carousel-inner" role="listbox">
+    		<?php for ($i=0;$i<$x;$i++) {
+    			if ($i==0) $slide_active=" active"; else $slide_active="";
+    			echo '<div class="carousel-item-modelo carousel-item'.$slide_active.'" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')">x</div>';
+    		} ?>
+    	</div>
+
+    </div>
+    <?php endif; ?>
+
       <div class="bg-primary">
-        <div class="container"><br>
+        <div class="container pb-1"><br>
           <div class="row">
             <div class="col-md-6 offset-md-3">
               <?php the_title('<h4 class="display-1">','</h4>'); ?>
@@ -29,7 +49,7 @@
               $child_posts = get_posts($childargs);
               foreach ($child_posts as $child_post) { ?>
                 <li class="nav-item">
-                  <a class="nav-link <?php if ($tabs==1) echo "active "; echo $child_post->post_name; ?>" data-toggle="tab" href="#<?php echo $child_post->post_name; ?>" role="tab"><?php echo $child_post->post_title; ?></a>
+                  <a class="small nav-link <?php if ($tabs==1) echo "active "; echo $child_post->post_name; ?>" data-toggle="tab" href="#<?php echo $child_post->post_name; ?>" role="tab"><?php echo $child_post->post_title; ?></a>
                 </li>
                 <?php $tabs++; } ?>
               </ul>
@@ -37,32 +57,34 @@
               <?php $tabs=1; foreach ($child_posts as $child_post) { ?>
               <div class="tab-pane fade<?php if ($tabs==1) echo " in active"; ?>" id="<?php echo $child_post->post_name; ?>" role="tabpanel">
                 <div class="row flex-items-xs-middle">
-                  <div class="col-sm-7"><a href="<?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>" rel="lightbox[<?php echo $child_post->post_name;?>]"><?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID)); ?></a></div>
-                  <div class="col-sm-5 small">
-                  <p>Desde:<br><span class="text-default">$<?php echo number_format(types_render_field( "precio", array( "post_id"=>$child_post->ID,"raw"=>"true"))); ?> + IVA (10.5%)</span></p>
+                  <div class="col-md-7"><a href="<?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>" rel="lightbox[<?php echo $child_post->post_name;?>]"><?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"class"=>"mt-2")); ?></a></div>
+                  <div class="col-md-5 small">
+                  <p>Desde:<br><span class="font-weight-bold text-primary">$<?php echo number_format(types_render_field( "precio", array( "post_id"=>$child_post->ID,"raw"=>"true")), 0, ',', '.'); ?> + IVA (10.5%)</span></p>
                   <p><?php $personas = types_render_field( "personas-modelo", array( "raw"=>"true"));
             			$personas_max = types_render_field( "personas-max-modelo", array( "raw"=>"true"));
             			for ($i=0;$i<$personas;$i++) {
             				echo '<i class="fa fa-male" aria-hidden="true"></i>';
             			}
             			for ($i=0;$i<$personas_max-$personas;$i++) {
-            				echo '<i class="fa fa-male text-default" aria-hidden="true"></i>';
+            				echo '<i class="fa fa-male text-primary" aria-hidden="true"></i>';
             			}
             			echo "<br>".$personas." - ".$personas_max." personas"; ?></p>
                   <hr>
                   <div class="row">
                     <div class="col-xs">
-                      <?php $dormitorios = types_render_field( "dormitorios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-default">'.$dormitorios.'</span>'; if ($dormitorios>1) echo " Dormitorios"; else echo " Dormitorio"; ?><br>
-                      <?php $banos = types_render_field( "banos", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-default">'.$banos.'</span>'; if ($banos>1) echo " Baños"; else echo " Baño"; ?><br>
-                      <?php $patios = types_render_field( "patios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-default">'.$patios.'</span>'; if ($patios>1) echo " Patios"; else echo " Patio"; ?><br>
-                      <?php $living = types_render_field( "living", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-default">'.$living."</span> Living"; ?><br>
+                      <?php $dormitorios = types_render_field( "dormitorios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$dormitorios.'</span>'; if ($dormitorios>1) echo " Dormitorios"; else echo " Dormitorio"; ?><br>
+                      <?php $banos = types_render_field( "banos", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$banos.'</span>'; if ($banos>1) echo " Baños"; else echo " Baño"; ?><br>
+                      <?php $patios = types_render_field( "patios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$patios.'</span>'; if ($patios>1) echo " Patios"; else echo " Patio"; ?><br>
+                      <?php $living = types_render_field( "living", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$living."</span> Living"; ?><br>
                     </div>
                     <div class="col-xs">
-                      <?php $superficie = types_render_field( "superficie", array( "post_id"=>$child_post->ID)); echo 'Superficie<br><span class="text-default">'.$superficie.'</span>'; ?>
+                      <?php $superficie = types_render_field( "superficie", array( "post_id"=>$child_post->ID)); echo 'Superficie<br><span class="text-primary">'.$superficie.'</span>'; ?>
                     </div>
                   </div>
                   <br>
-                  <a class="btn btn-default" href="/www/cotizar">Presupuestar y elegir forma de pago</a><br>
+                  <div class="text-xs-center text-md-left">
+                    <a class="btn btn-default" href="<?php echo site_url ();?>/cotizar">Presupuestar y elegir forma de pago</a>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -86,25 +108,7 @@
 </div>
 <br><br>
 <?php endif; ?>
-<?php if (types_render_field( "galeria-modelo")) : ?>
-<div id="carousel-<?php echo $post->post_name; ?>" class="carousel slide" data-ride="carousel">
-
-	<ol class="carousel-indicators">
-		<?php $imgs = get_post_meta(get_the_ID(), 'wpcf-galeria-modelo'); $x = count($imgs);
-		for ($i=0;$i<$x;$i++) {
-			if ($i==0) $slide_active="active"; else $slide_active="";
-			echo '<li data-target="#carousel-'.$post->post_name.'" data-slide-to="'.$i.'" class="'.$slide_active.'"></li>';
-		} ?>
-	</ol>
-
-	<div class="carousel-inner" role="listbox">
-		<div class="carousel-item active">
-			<?php echo types_render_field( "galeria-modelo", array( "size"=>"large","class"=>"img-fluid", "separator" => "</div><div class='carousel-item'>") ); ?>
-		</div>
-	</div>
-
-</div>
-<?php endif; ?>
+<?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
 <div class="container"><br>
   <p class="text-xs-center small">*Las imágenes son simples ejemplos sobre la terminación externa de la casa. Los modelos comercializados y su imagen  nal responden a la memoria descriptiva detallada en el contrato.</p>
 </div>

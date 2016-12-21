@@ -27,21 +27,11 @@
     // Home page
     'home': {
       init: function() {
-        // JavaScript to be fired on the home page
-        /*$('.flexslider').flexslider({
-            slideshow: false,
-            animation: "slide"
-            // initDelay: 100000,
-            // useCSS: false
-            // ,controlsContainer: $(".custom-controls-container"),
-            // customDirectionNav: $(".custom-navigation a")
-        });*/
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
         $(document).delegate(".filtro_idea", "click", function() {
           filterValue = $(this).attr('data-filter');
-          //$(this).hide();
           $("[class='cocinas']").hide();
         });
       }
@@ -49,28 +39,39 @@
     // About us page, note the change from about-us to about_us.
     'cotizar': {
       init: function() {
-        Number.prototype.format = function(n, x) {
-            var re = '(\\d)(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-            return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$1,');
-        };
-        // JavaScript to be fired on the about us page
+
+        Number.prototype.formatMoney = function(c, d, t){
+        var n = this,
+            c = isNaN(c = Math.abs(c)) ? 2 : c,
+            d = d == undefined ? "," : d,
+            t = t == undefined ? "." : t,
+            s = n < 0 ? "-" : "",
+            i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+            j = (j = i.length) > 3 ? j % 3 : 0;
+           return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+         };
+
         $("ul.nav-tabs a").click(function (e) {
           e.preventDefault();
             $(this).tab('show');
         });
+
         //monto_a_financiar
+        $(document).delegate(".elije-modelo", "click", function() {
+          $("#elegi-superficie").show();
+          $('html, body').animate({scrollTop: $("#elegi-superficie").offset().top}, 1000);
+        });
+
 
         $(document).delegate(".precio", "click", function() {
+          $("#calcula-cuotas").show();
           $precio=document.getElementById("valor_total").value;
           $monto_a_financiar=document.getElementById("monto_a_financiar").value;
           $porcentaje=document.getElementById("no_cuotas").value;
-          console.log($precio);
-          console.log($monto_a_financiar);
-          document.getElementById("valor_total").value = Math.round($(this).attr('precio')).format(2);
-          //document.getElementById("valor_total").value = Math.round($(this).attr('precio'));
-          //document.getElementById("monto_de_cuota").value = Math.round($precio).format(2);
+          //console.log($precio);
+          //console.log($monto_a_financiar);
+          document.getElementById("valor_total").value = Math.round($(this).attr('precio')).formatMoney(0);
         });
-
 
         var sel = document.getElementById('no_cuotas');
         var el = document.getElementById('monto_a_financiar');
@@ -81,18 +82,15 @@
           document.getElementById("monto_de_cuota").value = "";
         });
 
-
         document.getElementById("no_cuotas").onchange = function(){
           $precio=document.getElementById("valor_total").value;
           $monto_a_financiar=parseInt(document.getElementById("monto_a_financiar").value);
           $no_cuotas=parseInt(document.getElementById("no_cuotas").value);
           $porcentaje=this.options[this.selectedIndex].getAttribute("porcentaje");
-          console.log("porcentaje:"+$porcentaje);
-          console.log("monto_a_financiar:"+$monto_a_financiar);
-          console.log("cuotas:"+$no_cuotas);
-          //console.log(this.options[this.selectedIndex].getAttribute("porcentaje"));
-          //document.getElementById("monto_de_cuota").value = Math.round($precio/document.getElementById("no_cuotas").value).format(2);
-          document.getElementById("monto_de_cuota").value = Math.round(($monto_a_financiar*$porcentaje)/$no_cuotas).format(2);
+          //console.log("porcentaje:"+$porcentaje);
+          //console.log("monto_a_financiar:"+$monto_a_financiar);
+          //console.log("cuotas:"+$no_cuotas);
+          document.getElementById("monto_de_cuota").value = Math.round(($monto_a_financiar*$porcentaje)/$no_cuotas).formatMoney(2);
         };
       }
     }

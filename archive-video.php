@@ -1,7 +1,7 @@
-<div class="page-header bg-primary text-white">
+<div class="page-header bg-primary">
 	<div class="container">
 		<h1>Finalistas del Casting Embajadores Unacasa</h1>
-		3 ganadores ya fueron seleccionados por el jurado, estos son los votos de nuestros usuarios:
+		<p>3 ganadores ya fueron seleccionados por el jurado, estos son los votos de nuestros usuarios:</p>
 	</div>
 </div>
 <br><br>
