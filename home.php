@@ -20,7 +20,7 @@
 </div>
 
 <!-- GANADORES -->
-<div class="jumbotron jumbotron-fluid bg-inverse text-white spacer-y">
+<div class="jumbotron jumbotron-fluid bg-inverse text-white my-1">
 	<div class="container">
 		<h6 class="display-4 text-xs-center text-white"><span class="text-primary">3 DISEÑOS |</span> Múltiples combinaciones</h6>
 	</div>
@@ -61,7 +61,7 @@
 
 <!-- PREVENTA -->
 <?php $args = array('pagename' => 'preventa'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
-<div class="container-fluid spacer-y">
+<div class="container-fluid my-1">
 	<div class="row bg-preventa0 bg-primary">
 		<div class="col-xs-12 col-md poster" <?php poster_bg(); ?>>
 		</div>
@@ -82,7 +82,7 @@
 	</div>
 </div>
 
-<div class="jumbotron jumbotron-fluid bg-inverse text-white spacer-y">
+<div class="jumbotron jumbotron-fluid bg-inverse text-white my-1">
 	<div class="container text-xs-center">
 		<p class="h3 display-4">Cada modelo está diseñado para brindar espacios flexibles, confort y eficiencia energética. Sistema de construcción en 120 días.</p>
 		<br><a href="/www/cotizar" class="btn btn-default" style="color:#000">Cotizá on-line</a>
@@ -91,7 +91,7 @@
 
 <!-- TEASER CALU -->
 <?php $args = array('pagename' => 'teaser-calu'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
-<div class="card-group spacer-y">
+<div class="card-group my-1">
 	<div class="card bg-inverse text-white">
 		<div class="jumbotron">
 		<?php the_content();?>

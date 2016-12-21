@@ -17,7 +17,7 @@
       <div class="carousel-inner" role="listbox">
     		<?php for ($i=0;$i<$x;$i++) {
     			if ($i==0) $slide_active=" active"; else $slide_active="";
-    			echo '<div class="carousel-item-modelo carousel-item'.$slide_active.'" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')">x</div>';
+    			echo '<div class="carousel-item-modelo carousel-item'.$slide_active.'" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')"></div>';
     		} ?>
     	</div>
 
@@ -83,7 +83,7 @@
                   </div>
                   <br>
                   <div class="text-xs-center text-md-left">
-                    <a class="btn btn-default" href="<?php echo site_url ();?>/cotizar">Presupuestar y elegir forma de pago</a>
+                    <a class="btn btn-default btn-lg" href="<?php echo site_url ();?>/cotizar">Presupuestar y elegir forma de pago</a>
                   </div>
                   </div>
                 </div>
@@ -99,7 +99,6 @@
   </article>
 <?php endwhile; ?>
 
-<br>
 <?php if (types_render_field( "recorrido-virtual")) : ?>
 <div class="container text-xs-center">
   <h2>Recorrido virtual</h2>
@@ -116,7 +115,7 @@
 <div class="bg-inverse text-white text-xs-center">
   <div class="container"><br>
     <p class="h4 display-4">Cada modelo está diseñado para brindar espacios flexibles, confort y eficiencia energética. Sistema de construcción en 120 días.</p><br>
-    <a class="btn btn-default" href="/www/cotizar">Cotizá on-line</a>
+    <a class="btn btn-default btn-lg" href="/www/cotizar">Cotizá on-line</a>
     <br><br>
   </div>
 </div>

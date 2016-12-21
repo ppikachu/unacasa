@@ -12,7 +12,7 @@
 	<div class="carousel-inner" role="listbox">
 		<?php for ($i=0;$i<$x;$i++) {
 			if ($i==0) $slide_active=" active"; else $slide_active="";
-			echo '<div class="carousel-item-modelo carousel-item'.$slide_active.'" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')">x</div>';
+			echo '<div class="carousel-item-modelo carousel-item'.$slide_active.'" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')"></div>';
 		} ?>
 	</div>
 
@@ -20,7 +20,7 @@
 <?php endif; ?>
 
 <div class="container mb-3">
-<div class="media spacer-y">
+<div class="media mt-2">
 	<p class="media-left" >
 		<?php echo types_render_field( "icono", array( "class"=>"media-object","width"=>"28"));?>
 	</p>
@@ -58,7 +58,9 @@
 
 			<div class="col-lg-3" >
 				<p>Desde<br><span class="font-weight-bold text-primary">$<?php echo number_format(types_render_field("desde-modelo"), 0, ',', '.' ); ?> + IVA (10.5%)</span></p>
-				<a class="btn btn-default" href="<?php the_permalink(); ?>">Ver las casas</a>
+				<div class="text-xs-center text-md-left">
+					<a class="btn btn-default btn-lg" href="<?php the_permalink(); ?>">Ver las casas</a>
+				</div>
 			</div>
 		</div>
 	</div>

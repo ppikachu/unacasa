@@ -33,7 +33,7 @@
 			</ul>
 		</div>
 
-		<div id="elegi-superficie">
+		<div id="elegi-superficie" class="my-2">
 			<div class="alert bg-grisclaro text-white">2- Seleccioná la superficie</div>
 
 			<div class="tab-content">
@@ -62,8 +62,8 @@
 							<div class="tab-content">
 								<?php $tabs=1; foreach ($child_posts as $child_post) { ?>
 									<div class="tab-pane fade<?php if ($tabs==1) echo " in active"; ?>" id="<?php echo $child_post->post_name; ?>" role="tabpanel">
-										<div class="row">
-											<div class="col-sm-7"><a href="<?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"raw"=>"true","class"=>"mt-2")); ?>" rel="lightbox[<?php echo $child_post->post_name;?>]"><?php echo types_render_field( "plano", array( "class"=>"img-fluid","post_id"=>$child_post->ID)); ?></a></div>
+										<div class="row flex-items-xs-middle">
+											<div class="col-sm-7 mt-2"><a href="<?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>" rel="lightbox[<?php echo $child_post->post_name;?>]"><?php echo types_render_field( "plano", array( "class"=>"img-fluid","post_id"=>$child_post->ID)); ?></a></div>
 											<div class="col-sm-5">
 												<p><br>Desde:<br><span class="font-weight-bold text-primary">$<?php echo number_format(types_render_field( "precio", array( "post_id"=>$child_post->ID,"raw"=>"true")), 0, ',', '.'); ?> + IVA (10.5%)</span></p>
 												<p><?php $personas = types_render_field( "personas-modelo", array( "raw"=>"true"));
@@ -101,7 +101,7 @@
 						wp_reset_postdata(); ?>
 					</div>
 		</div>
-		<br><br>
+
 		<div id="calcula-cuotas">
 			<div class="alert bg-grisclaro text-white">3- Calculá el valor de las cuotas</div>
 
@@ -156,7 +156,7 @@
 				  <label for="monto_de_cuota" class="col-xs-4 col-md-3 col-form-label font-weight-bold">Monto estimado de cuota *</label>
 				  <div class="col-xs-8 col-md-9">
 						<div class="input-group">
-				      <div class="input-group-addon">$</div>
+				      <div class="input-group-addon font-weight-bold">$</div>
 				    	<input class="form-control font-weight-bold" type="text" value="" id="monto_de_cuota" disabled>
 						</div>
 				  </div>
