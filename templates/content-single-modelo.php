@@ -3,24 +3,13 @@
   <article <?php post_class(); ?>>
 
   <div class="entry-content">
+
     <?php if (types_render_field( "galeria-modelo")) : ?>
-    <div id="carousel-<?php echo $post->post_name; ?>" class="carousel slide" data-ride="carousel">
-
-    	<ol class="carousel-indicators">
-    		<?php $imgs = get_post_meta(get_the_ID(), 'wpcf-galeria-modelo'); $x = count($imgs);
-    		for ($i=0;$i<$x;$i++) {
-    			if ($i==0) $slide_active="active"; else $slide_active="";
-    			echo '<li data-target="#carousel-'.$post->post_name.'" data-slide-to="'.$i.'" class="'.$slide_active.'"></li>';
-    		} ?>
-    	</ol>
-
-      <div class="carousel-inner" role="listbox">
-    		<?php for ($i=0;$i<$x;$i++) {
-    			if ($i==0) $slide_active=" active"; else $slide_active="";
-    			echo '<div class="carousel-item-modelo carousel-item'.$slide_active.'" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')"></div>';
-    		} ?>
-    	</div>
-
+    <div id="carousel-<?php echo $post->post_name; ?>" class="carousel slide" data-flickity='{ "wrapAround": true, "autoPlay": 4000,"prevNextButtons": false, "pauseAutoPlayOnHover": false }'>
+    	<?php $imgs = get_post_meta(get_the_ID(), 'wpcf-galeria-modelo'); $x = count($imgs);
+    	for ($i=0;$i<$x;$i++) {
+    		echo '<div class="carousel-cell"><div class="carousel-item-modelo" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')"></div></div>';
+    	} ?>
     </div>
     <?php endif; ?>
 
@@ -100,22 +89,21 @@
 <?php endwhile; ?>
 
 <?php if (types_render_field( "recorrido-virtual")) : ?>
-<div class="container text-xs-center">
+<div class="container text-xs-center mb-3">
   <h2>Recorrido virtual</h2>
   <p>Paseá por tu próxima casa.</p>
   <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="<?php $tour = types_render_field( "recorrido-virtual", array( "raw"=>"true")); echo $tour; ?>" allowfullscreen></iframe></div>
 </div>
-<br><br>
 <?php endif; ?>
+
 <?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
-<div class="container"><br>
+<div class="container mb-3"><br>
   <p class="text-xs-center small">*Las imágenes son simples ejemplos sobre la terminación externa de la casa. Los modelos comercializados y su imagen  nal responden a la memoria descriptiva detallada en el contrato.</p>
 </div>
 
-<div class="bg-inverse text-white text-xs-center">
+<div class="bg-inverse text-white text-xs-center pb-2">
   <div class="container"><br>
     <p class="h4 display-4">Cada modelo está diseñado para brindar espacios flexibles, confort y eficiencia energética. Sistema de construcción en 120 días.</p><br>
-    <a class="btn btn-default btn-lg" href="/www/cotizar">Cotizá on-line</a>
-    <br><br>
+    <a class="btn btn-default btn-lg" href="<?php echo site_url(); ?>/cotizar">Cotizá on-line</a>
   </div>
 </div>

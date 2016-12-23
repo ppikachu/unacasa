@@ -1,21 +1,9 @@
 <?php if (types_render_field( "galeria-modelo")) : ?>
-<div id="carousel-<?php echo $post->post_name; ?>" class="carousel slide" data-ride="carousel">
-
-	<ol class="carousel-indicators">
-		<?php $imgs = get_post_meta(get_the_ID(), 'wpcf-galeria-modelo'); $x = count($imgs);
-		for ($i=0;$i<$x;$i++) {
-			if ($i==0) $slide_active="active"; else $slide_active="";
-			echo '<li data-target="#carousel-'.$post->post_name.'" data-slide-to="'.$i.'" class="'.$slide_active.'"></li>';
-		} ?>
-	</ol>
-
-	<div class="carousel-inner" role="listbox">
-		<?php for ($i=0;$i<$x;$i++) {
-			if ($i==0) $slide_active=" active"; else $slide_active="";
-			echo '<div class="carousel-item-modelo carousel-item'.$slide_active.'" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')"></div>';
-		} ?>
-	</div>
-
+<div id="carousel-<?php echo $post->post_name; ?>" class="carousel slide" data-flickity='{ "wrapAround": true, "autoPlay": 4000,"prevNextButtons": false, "pauseAutoPlayOnHover": false }'>
+	<?php $imgs = get_post_meta(get_the_ID(), 'wpcf-galeria-modelo'); $x = count($imgs);
+	for ($i=0;$i<$x;$i++) {
+		echo '<div class="carousel-cell"><div class="carousel-item-modelo" style="background-image:url('.types_render_field( "galeria-modelo", array( "size"=>"large","index"=>$i,"raw"=>"true") ).')"></div></div>';
+	} ?>
 </div>
 <?php endif; ?>
 

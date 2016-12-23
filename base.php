@@ -37,18 +37,5 @@ use Roots\Sage\Wrapper;
       wp_footer();
     ?>
 
-    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAzj0q9gUT9iO1mvuX_nWFRZMrrFgKZEUI",
-        authDomain: "unacasa-149912.firebaseapp.com",
-        databaseURL: "https://unacasa-149912.firebaseio.com",
-        storageBucket: "unacasa-149912.appspot.com",
-        messagingSenderId: "445651774863"
-      };
-      firebase.initializeApp(config);
-    </script>
-    
   </body>
 </html>

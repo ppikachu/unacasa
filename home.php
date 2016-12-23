@@ -33,7 +33,7 @@
 	while ( $the_query->have_posts() ) {
 		$the_query->the_post(); ?>
 		<div class="card">
-		 <a href="<?php the_permalink(); ?>" class="card-poster-notas" <?php poster_bg(); ?> ></a>
+		 <a href="<?php the_permalink(); ?>" class="card-poster-casas" <?php poster_bg(); ?> ></a>
 		 <div class="card-block">
 
 			<div class="media">
@@ -82,16 +82,17 @@
 	</div>
 </div>
 
-<div class="jumbotron jumbotron-fluid bg-inverse text-white my-1">
+<div class="jumbotron jumbotron-fluid bg-inverse text-white mt-1">
 	<div class="container text-xs-center">
 		<p class="h3 display-4">Cada modelo está diseñado para brindar espacios flexibles, confort y eficiencia energética. Sistema de construcción en 120 días.</p>
-		<br><a href="/www/cotizar" class="btn btn-default" style="color:#000">Cotizá on-line</a>
+		<p class="mt-3"><img src="<?php echo get_template_directory_uri ().'/dist/images/3iconos.svg'; ?>" width="100"></p>
+		<a href="<?php echo site_url(); ?>/cotizar" class="btn btn-lg btn-default" style="color:#000">Cotizá on-line</a>
 	</div>
 </div>
 
 <!-- TEASER CALU -->
 <?php $args = array('pagename' => 'teaser-calu'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
-<div class="card-group my-1">
+<div class="card-group mt-1">
 	<div class="card bg-inverse text-white">
 		<div class="jumbotron">
 		<?php the_content();?>
@@ -100,11 +101,27 @@
 	<div class="card">
 		<div class="embed-responsive embed-responsive-16by9">
 			<?php $url = types_render_field("video");
-			//echo $url;
 			$args = array('width'=>'');
 			echo wp_oembed_get( $url, $args );
-			//echo wp_oembed_get( $url ); ?>
-			<?php wp_reset_postdata(); ?>
+			wp_reset_postdata(); ?>
+		</div>
+	</div>
+</div>
+
+<!-- Evento Lanzamientos -->
+<?php $args = array('pagename' => 'evento-lanzamientos'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
+<div class="card-group mt-1">
+	<div class="card">
+		<div class="embed-responsive embed-responsive-16by9">
+			<?php $url = types_render_field("video");
+			$args = array('width'=>'');
+			echo wp_oembed_get( $url, $args ); ?>
+		</div>
+	</div>
+	<div class="card bg-inverse text-white">
+		<div class="jumbotron">
+		<?php the_content();
+		wp_reset_postdata(); ?>
 		</div>
 	</div>
 </div>

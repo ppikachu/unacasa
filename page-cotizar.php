@@ -216,10 +216,8 @@
 
 			<p class="text-xs-center">Te estaremos contactando a la brevedad para coordinar una reunión personal.</p>
 		</div> -->
-		<div class="text-xs-center">
-			<br>
-		<!-- <p class="text-xs-center">Te estaremos contactando a la brevedad para coordinar una reunión personal.</p> -->
-		<a class="btn btn-default" href="/www/contactarme">Deseo ser contactado</a>
+		<div class="text-xs-center mt-2">
+		<a class="btn btn-lg btn-default" href="<?php echo site_url(); ?>/contactarme">Deseo ser contactado</a>
 	</div>
 
 </div>

@@ -119,7 +119,7 @@ body.logged-in {
 	background-color: $gray-light;
 }
 
-input.wpcf7-form-control {
+input.wpcf7-form-control,textarea.wpcf7-form-control  {
 	border-bottom: solid 2px $gray-dark;
 	&:focus {
 		border-bottom: solid 2px black;
@@ -289,18 +289,34 @@ $poster-height-landscape-mobile: 90vh;
 	.col-sm-idea {z-index: 1;}
 }
 
-.card-poster-notas {
-	// height: 80vw;
-	height: 20vh;
+.card-poster-casas {
+	height: 60vw;
 	display: block;
 	position: relative;
 	@include media-breakpoint-up(sm) {
-		height: 128px;
+		height: 25vw;
+	}
+}
+
+#ganadores {
+	.card:first-child {
+	  border-left: 0;
+	}
+	.card:last-child {
+	  border-right: 0;
+	}
+}
+
+.card-poster-notas {
+	height: 60vw;
+	display: block;
+	position: relative;
+	@include media-breakpoint-up(sm) {
+		height: 140px;
 	}
 	@include media-breakpoint-up(lg) {
-		height: 150px;
+		height: 190px;
 	}
-
 }
 
 .videos {
@@ -466,10 +482,41 @@ $poster-height-landscape-mobile: 90vh;
 .carousel-item-modelo {
 	height: 50vw;
 	background-size: cover;
+	width: 100%;
+}
+
+.carousel-cell {
+	height: 50vw;
+	width: 100%;
+}
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: $brand-primary;
+  border-radius: 50%;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
 }
 
 .single-modelo .entry-content {
-	// font-family: $font-family-serif;
 	font-size: $font-size-lg;
 }
 

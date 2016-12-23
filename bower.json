@@ -11,7 +11,15 @@
     "bootstrap": "git://github.com/twbs/bootstrap.git#v4.0.0-alpha.5",
     "font-awesome": "fontawesome#^4.6.3",
     "jquery.scrollTo": "^2.1.2",
-    "number-format.js": "^1.1.10"
+    "number-format.js": "^1.1.10",
+    "flickity": "^2.0.5"
   },
-  "overrides": {}
+  "overrides": {
+    "flickity": {
+      "main": [
+        "./dist/flickity.pkgd.js",
+        "./dist/flickity.min.css"
+      ]
+    }
+  }
 }
