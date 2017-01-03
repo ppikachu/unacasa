@@ -30,7 +30,7 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 // solo los ganadores en archive modelos
-add_action('pre_get_posts', 'solo_ganadores' );
+if (!is_admin()) add_action('pre_get_posts', 'solo_ganadores' );
 
 function solo_ganadores( $wp_query ) {
 	if( is_post_type_archive('modelo') ) {
