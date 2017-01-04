@@ -20,16 +20,17 @@
 </div>
 
 <!-- GANADORES -->
+<?php $args = array('post_type' => 'modelo','category_name'=>'proyectos-ganadores','orderby'=>'rand');
+$the_query = new WP_Query( $args ); ?>
 <div class="jumbotron jumbotron-fluid bg-inverse text-white my-1">
 	<div class="container">
-		<h6 class="display-4 text-xs-center text-white"><span class="text-primary">3 DISEÑOS |</span> Múltiples combinaciones</h6>
+		<h6 class="display-4 text-xs-center text-white"><span class="text-primary"><?php echo $the_query->found_posts; ?> DISEÑOS |</span> Múltiples combinaciones</h6>
 	</div>
 </div>
 
 <div id="ganadores" class="card-group">
-	<?php $args = array('post_type' => 'modelo','category_name'=>'proyectos-ganadores','orderby'=>'rand');
-	$the_query = new WP_Query( $args );
-	// The Loop
+
+	<?php // The Loop
 	while ( $the_query->have_posts() ) {
 		$the_query->the_post(); ?>
 		<div class="card">
