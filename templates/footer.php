@@ -1,4 +1,4 @@
-<footer id="footer_pagina" class="content-info bg-grisclaro py-2">
+<footer id="footer_pagina" class="content-info bg-grisclaro py-2 mt-3">
   <div class="container">
     <div class="row flex-items-xs-center">
       <div class="col-xs-12 col-md text-xs-center text-md-left mb-1">

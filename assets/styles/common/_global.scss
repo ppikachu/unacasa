@@ -4,6 +4,31 @@ body.logged-in {
 	}
 }
 
+.card {
+	overflow: hidden;
+}
+
+.col-modelo {
+	display: inline-block;;
+	background-color: $card-bg;
+	border-bottom: $card-border-width solid $card-border-color;
+	width: 100%;
+	@include media-breakpoint-only(sm) {
+		border-right: $card-border-width solid $card-border-color;
+		width: 50%;
+		&:nth-child(2n+2) {
+			border-right: none;
+		}
+	}
+	@include media-breakpoint-up(md) {
+		border-right: $card-border-width solid $card-border-color;
+		width: 20%;
+		&:nth-child(5n+5) {
+			border-right: none;
+		}
+	}
+}
+
 .cotizar .card-group .active {
 	background-color: $brand-primary;
 }
@@ -111,8 +136,6 @@ body.logged-in {
 
 .bg-preventa {
 	background-color: $brand-preventa;
-	// padding: $spacer-y*2 0;
-	// color: $gray-lightest;
 }
 
 .bg-grisclaro {
@@ -148,14 +171,11 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 }
 
 .navbar-brand {
-	// margin-left: -($spacer-x/2);
 	display: inline-block;
-	// margin-top: $spacer-y/1.5;
 	margin-bottom: $spacer-y/2;
 	width: 180px;
 	@include media-breakpoint-down(sm) {
 		float: none;
-		// padding-right: 2rem;
 	}
 	img {
 		width: 100%;
@@ -167,7 +187,6 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 	padding-top: 27px;
 	float: left;
 	text-transform: none;;
-	// display: inline-block;;
 }
 
 .navbar-toggler {
@@ -247,7 +266,6 @@ footer .social-icons-lists {
 		}
 	}
 	.sub-menu {
-		/*position: absolute;*/
 		text-transform: none;
 		font-weight: normal;
 		padding: 0;
@@ -269,7 +287,6 @@ $poster-height-landscape-mobile: 90vh;
 	background-position: center;
 	height: $poster-height;
 	@include media-breakpoint-up(md) {
-		//height: $poster-height;
 	}
 }
 
@@ -294,7 +311,10 @@ $poster-height-landscape-mobile: 90vh;
 	display: block;
 	position: relative;
 	@include media-breakpoint-up(sm) {
-		height: 25vw;
+		height: 33vw;
+	}
+	@include media-breakpoint-up(md) {
+		height: 15vw;
 	}
 }
 
@@ -312,10 +332,13 @@ $poster-height-landscape-mobile: 90vh;
 	display: block;
 	position: relative;
 	@include media-breakpoint-up(sm) {
-		height: 140px;
+		height: 180px;
+	}
+	@include media-breakpoint-up(md) {
+		height: 100px;
 	}
 	@include media-breakpoint-up(lg) {
-		height: 190px;
+		height: 140px;
 	}
 }
 

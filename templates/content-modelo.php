@@ -45,7 +45,7 @@
 			</div>
 
 			<div class="col-lg-3" >
-				<p>Desde<br><span class="font-weight-bold text-primary">$<?php echo number_format(types_render_field("desde-modelo"), 0, ',', '.' ); ?> + IVA (10.5%)</span></p>
+				<?php if (types_render_field("desde-modelo")) : ?><p>Desde<br><span class="font-weight-bold text-primary">$<?php echo number_format(types_render_field("desde-modelo"), 0, ',', '.' ); ?> + IVA (10.5%)</span></p><?php endif; ?>
 				<div class="text-xs-center text-md-left">
 					<a class="btn btn-default btn-lg" href="<?php the_permalink(); ?>">Ver las casas</a>
 				</div>

@@ -20,35 +20,23 @@
 </div>
 
 <!-- GANADORES -->
-<?php $args = array('post_type' => 'modelo','category_name'=>'proyectos-ganadores','orderby'=>'rand');
+<?php $no_proyectos = 10;
+$args = array('post_type'=>'modelo','tax_query'=>array(array('taxonomy'=>'categoria-modelo','field'=>'slug','terms'=>'destacado-inicio',),),'posts_per_page'=>$no_proyectos,'orderby'=>'rand');
 $the_query = new WP_Query( $args ); ?>
+
 <div class="jumbotron jumbotron-fluid bg-inverse text-white my-1">
 	<div class="container">
-		<h6 class="display-4 text-xs-center text-white"><span class="text-primary"><?php echo $the_query->found_posts; ?> DISEÑOS |</span> Múltiples combinaciones</h6>
+		<h6 class="display-4 text-xs-center text-white"><span class="text-primary"><?php echo $the_query->post_count; ?> DISEÑOS |</span> Múltiples combinaciones</h6>
 	</div>
 </div>
 
-<div id="ganadores" class="card-group">
+<div id="ganadores" class="card-group mb-3">
 
 	<?php // The Loop
+	$counter=1; $i=1;
 	while ( $the_query->have_posts() ) {
 		$the_query->the_post(); ?>
-		<div class="card">
-		 <a href="<?php the_permalink(); ?>" class="card-poster-casas" <?php poster_bg(); ?> ></a>
-		 <div class="card-block">
-
-			<div class="media">
-			  <p class="media-left">
-					<?php echo types_render_field( "icono", array( "class"=>"media-object","width"=>"32"));?>
-			  </p>
-			  <div class="media-body">
-					AUTOR<br><?php the_title('<h4 class="display-1">','</h4>'); ?>
-			    <p>Arquitectos: <?php echo types_render_field("autores"); ?></p>
-			  </div>
-			</div>
-
-		 </div>
-	 </div>
+		<?php get_template_part('templates/content-modelo-card'); ?>
 	<?php } wp_reset_postdata(); ?>
 </div>
 
