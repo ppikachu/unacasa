@@ -98,10 +98,10 @@
 
     <?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
     <div class="container mb-3"><br>
-      <p class="text-xs-center small">*Las imágenes son simples ejemplos sobre la terminación externa de la casa. Los modelos comercializados y su imagen  nal responden a la memoria descriptiva detallada en el contrato.</p>
+      <p class="text-center small">*Las imágenes son simples ejemplos sobre la terminación externa de la casa. Los modelos comercializados y su imagen  nal responden a la memoria descriptiva detallada en el contrato.</p>
     </div>
 
-    <div class="bg-inverse text-white text-xs-center pb-2">
+    <div class="bg-inverse text-white text-center pb-2">
       <div class="container"><br>
         <p class="h4 display-4">Cada modelo está diseñado para brindar espacios flexibles, confort y eficiencia energética. Sistema de construcción en 120 días.</p><br>
         <a class="btn btn-default btn-lg" href="<?php echo site_url(); ?>/cotizar">Cotizá on-line</a>

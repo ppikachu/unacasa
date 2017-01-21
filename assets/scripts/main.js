@@ -38,7 +38,6 @@
     },
     'cotizar': {
       init: function() {
-
         //monto_a_financiar
         $(document).delegate(".elije-modelo", "click", function() {
           $("#elegi-superficie").show();

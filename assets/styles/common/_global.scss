@@ -13,6 +13,10 @@ body.logged-in {
 	background-color: $card-bg;
 	border-bottom: $card-border-width solid $card-border-color;
 	width: 100%;
+	img {
+		width: 42px;
+		margin-right: 6px;
+	}
 	@include media-breakpoint-only(sm) {
 		border-right: $card-border-width solid $card-border-color;
 		width: 50%;
@@ -27,6 +31,10 @@ body.logged-in {
 			border-right: none;
 		}
 	}
+}
+
+.cotizar .card-group a {
+text-decoration: none;
 }
 
 .cotizar .card-group .active {
@@ -168,37 +176,51 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 
 .bg-navbar {
 	background-color: $navbar-light-hover-color;
+	.container {
+	@include media-breakpoint-down(md) {
+		//flex-direction: column;
+		flex-wrap:  wrap;
+		align-items: left;
+	}
+	}
 }
 
 .navbar-brand {
-	display: inline-block;
-	margin-bottom: $spacer-y/2;
-	width: 180px;
-	@include media-breakpoint-down(sm) {
-		float: none;
-	}
-	img {
-		width: 100%;
-		height: auto;
-	}
+	// display: inline-block;
+	// margin-bottom: $spacer-y/2;
+	// width: 180px;
+	// @include media-breakpoint-down(sm) {
+	// 	float: none;
+	// }
+	// img {
+	// 	width: 100%;
+	// 	height: auto;
+	// }
 }
 
 .descripcion {
 	padding-top: 27px;
-	float: left;
-	text-transform: none;;
+	// float: left;
+	text-transform: none;
+	white-space: nowrap;
 }
 
 .navbar-toggler {
-	position: absolute;
-	right: 12px;
-	top: 18px;
+	// position: absolute;
+	right: 0;
+	top: 6px;
+}
+
+#menu-menu {
+	@include media-breakpoint-down(md) {
+		margin-right: auto;
+	}
 }
 
 .navbar-nav {
 	.nav-item {
 		@include media-breakpoint-down(xs) {
-			float: none;
+			//float: none;
 		}
 	}
 
@@ -215,20 +237,22 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 	}
 
 	.nav-item + .nav-item {
-		margin-left: 1.6rem;
+		// margin-left: 1rem;
 		@include media-breakpoint-down(sm) {
 			margin-left: 0;
 		}
 	}
 }
 
-#exCollapsingNavbar2 .social-icons-lists {
+#nav_principal .social-icons-lists {
+	white-space: nowrap;
+	margin: 0;
 	.socicon {
 		color:white!important;
 	}
 	padding: 0;
 	@include media-breakpoint-down(sm) {
-		clear: both;
+		//clear: both;
 	}
 	@include media-breakpoint-up(lg) {
 		margin: $spacer*1.6 0 0 $spacer*2;
@@ -554,9 +578,9 @@ $poster-height-landscape-mobile: 90vh;
 	  padding-left:  ($grid-gutter-width-base / 2);
 	  padding-right: ($grid-gutter-width-base / 2);
 	}
-  @if not $enable-flex {
-    @include clearfix();
-  }
+  // @if not $enable-flex {
+  //   @include clearfix();
+  // }
 	@include make-container-max-widths();
 }
 
