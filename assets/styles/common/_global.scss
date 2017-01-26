@@ -177,41 +177,31 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 .bg-navbar {
 	background-color: $navbar-light-hover-color;
 	.container {
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+		}
 	@include media-breakpoint-down(md) {
-		//flex-direction: column;
 		flex-wrap:  wrap;
-		align-items: left;
+		justify-content: flex-start;
 	}
 	}
-}
-
-.navbar-brand {
-	// display: inline-block;
-	// margin-bottom: $spacer-y/2;
-	// width: 180px;
-	// @include media-breakpoint-down(sm) {
-	// 	float: none;
-	// }
-	// img {
-	// 	width: 100%;
-	// 	height: auto;
-	// }
 }
 
 .descripcion {
 	padding-top: 27px;
-	// float: left;
 	text-transform: none;
 	white-space: nowrap;
 }
 
 .navbar-toggler {
-	// position: absolute;
 	right: 0;
 	top: 6px;
 }
 
 #menu-menu {
+	@include media-breakpoint-down(sm) {
+		margin: $spacer-y 0;
+	}
 	@include media-breakpoint-down(md) {
 		margin-right: auto;
 	}
@@ -237,7 +227,6 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 	}
 
 	.nav-item + .nav-item {
-		// margin-left: 1rem;
 		@include media-breakpoint-down(sm) {
 			margin-left: 0;
 		}
@@ -252,7 +241,6 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 	}
 	padding: 0;
 	@include media-breakpoint-down(sm) {
-		//clear: both;
 	}
 	@include media-breakpoint-up(lg) {
 		margin: $spacer*1.6 0 0 $spacer*2;
@@ -578,9 +566,6 @@ $poster-height-landscape-mobile: 90vh;
 	  padding-left:  ($grid-gutter-width-base / 2);
 	  padding-right: ($grid-gutter-width-base / 2);
 	}
-  // @if not $enable-flex {
-  //   @include clearfix();
-  // }
 	@include make-container-max-widths();
 }
 
