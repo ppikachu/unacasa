@@ -13,6 +13,7 @@ body.logged-in {
 	background-color: $card-bg;
 	border-bottom: $card-border-width solid $card-border-color;
 	width: 100%;
+	overflow: hidden;
 	img {
 		width: 42px;
 		margin-right: 6px;
@@ -168,6 +169,10 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 	}
 }
 
+.wpcf7-not-valid-tip {
+	color: $white;
+}
+
 .spacer-y {
 	margin: $spacer-y/2 0;
 }
@@ -208,11 +213,6 @@ input.wpcf7-form-control,textarea.wpcf7-form-control  {
 }
 
 .navbar-nav {
-	.nav-item {
-		@include media-breakpoint-down(xs) {
-			//float: none;
-		}
-	}
 
 	.nav-link {
 		display: block;
@@ -375,7 +375,6 @@ $poster-height-landscape-mobile: 90vh;
 
 .card-poster-videos {
 	height: 25vw;
-	//margin-bottom: $spacer-y*2;
 	position: relative;
 	display: block;
 	@include media-breakpoint-up(sm) {
@@ -480,12 +479,6 @@ $poster-height-landscape-mobile: 90vh;
 }
 
 .page-header {
-	h1 {
-		// margin-top: $headings-margin-bottom*3;
-	}
-}
-
-.page-header {
 	padding: $spacer-y*6 0 $spacer-y 0;
 
 	@include media-breakpoint-up(md) {
@@ -510,7 +503,6 @@ $poster-height-landscape-mobile: 90vh;
 	padding-bottom: $spacer-y*2;
 	.img-fluid, img {
 		width: 100%;
-		//margin: $spacer-y*2 0;
 	}
 }
 
