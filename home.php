@@ -41,11 +41,7 @@ $the_query = new WP_Query( $args ); ?>
 </div>
 
 <div class="container-fluid text-center">
-<!-- <div class="row"> -->
-	<!-- <div class="col-md-6 offset-md-3"> -->
 	<img class="img-fluid" src="<?php echo get_template_directory_uri ().'/dist/images/cuadro1.png'; ?>">
-	<!-- </div> -->
-<!-- </div> -->
 </div>
 
 <!-- PREVENTA -->
@@ -61,10 +57,7 @@ $the_query = new WP_Query( $args ); ?>
 					wp_reset_postdata(); ?>
 				</div>
 				<div class="col-md-6">
-					<?php
-					// echo do_shortcode('[contact-form-7 id="165" title="Formulario Preventa"]');
-					echo do_shortcode('[contact-form-7 id="1537" title="Formulario Preventa 2017"]');
-					?>
+					<?php echo do_shortcode('[contact-form-7 id="1537" title="Formulario Preventa 2017"]'); ?>
 				</div>
 			</div>
 		</div>
@@ -81,13 +74,13 @@ $the_query = new WP_Query( $args ); ?>
 
 <!-- TEASER CALU -->
 <?php $args = array('pagename' => 'teaser-calu'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
-<div class="card-group mt-1">
-	<div class="card bg-inverse text-white">
+<div class="row no-gutters mt-1 bg-inverse">
+	<div class="col-lg-6 text-white">
 		<div class="jumbotron">
-		<?php the_content();?>
+			<?php the_content();?>
 		</div>
 	</div>
-	<div class="card">
+	<div class="col-lg-6 align-self-center">
 		<div class="embed-responsive embed-responsive-16by9">
 			<?php $url = types_render_field("video");
 			$args = array('width'=>'');
@@ -99,21 +92,21 @@ $the_query = new WP_Query( $args ); ?>
 
 <!-- Evento Lanzamientos -->
 <?php $args = array('pagename' => 'evento-lanzamientos'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
-<div class="card-group mt-1">
-	<div class="card">
+<div class="row no-gutters mt-1 bg-inverse">
+	<div class="col-lg-6 push-lg-6">
+		<div class="jumbotron">
+			<?php the_content(); ?>
+		</div>
+	</div>
+	<div class="col-lg-6 pull-lg-6 align-self-center">
 		<div class="embed-responsive embed-responsive-16by9">
 			<?php $url = types_render_field("video");
 			$args = array('width'=>'');
 			echo wp_oembed_get( $url, $args ); ?>
 		</div>
 	</div>
-	<div class="card bg-inverse text-white">
-		<div class="jumbotron">
-		<?php the_content();
-		wp_reset_postdata(); ?>
-		</div>
-	</div>
 </div>
+<?php wp_reset_postdata(); ?>
 
 <!-- DONDE ENCONTRARNOS -->
 <?php $args = array('pagename' => 'donde-encontrarnos'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>

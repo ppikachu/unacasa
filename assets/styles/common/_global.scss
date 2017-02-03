@@ -27,7 +27,7 @@ body.logged-in {
 	}
 	@include media-breakpoint-up(md) {
 		border-right: $card-border-width solid $card-border-color;
-		width: 20%;
+		width: 33.333%;
 		&:nth-child(5n+5) {
 			border-right: none;
 		}
