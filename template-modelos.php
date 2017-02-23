@@ -9,7 +9,7 @@ $args = array('post_type'=>'modelo','tax_query'=>array(array('taxonomy'=>'catego
 $the_query = new WP_Query( $args ); ?>
 
 <div class="page-header jumbotron bg-primary">
-	<div class="container text-xs-center">
+	<div class="container text-center">
 		<h1 class="display-3 text-default"><?php echo $the_query->post_count; ?> DISEÑOS DESTACADOS <span class="text-white">Múltiples combinaciones</span></h1>
 	</div>
 </div>
@@ -40,15 +40,14 @@ $the_query = new WP_Query( $args ); ?>
 $the_query = new WP_Query( $args );
 $no_proyectos = $the_query->post_count; ?>
 
-<div class="bg-inverse text-white text-xs-center py-2 mb-3">
+<div class="bg-inverse text-white text-center py-2 mb-3">
 	<div class="container text-xs-center">
-		<h2 class=""><?php echo $the_query->post_count; ?> DISEÑOS Múltiples combinaciones</h2>
+		<h3 class=""><?php echo $the_query->post_count; ?> DISEÑOS Múltiples combinaciones</h3>
 	</div>
 </div>
 
 <div class="card-group">
-<?php $counter=1; $i=1;
-  while ($the_query->have_posts()) : $the_query->the_post(); ?>
+<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
   <?php get_template_part('templates/content-modelo-card'); ?>
 <?php endwhile; ?>
 </div>

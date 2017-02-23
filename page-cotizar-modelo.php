@@ -1,40 +1,38 @@
 <div class="container mb-3">
 	<div class="py-3"></div>
 
-		<div id="elegi-modelo">
-			<div class="alert bg-grisclaro text-white">1- Elegí el modelo de tu casa</div>
+	<div id="elegi-modelo">
+		<?php
+		$s = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+		$args = array(
+			'post_type'	=> array( 'modelo' ),
+			'p'					=> $s,
+		);
+		// The Query
+		$query = new WP_Query( $args );
+		// The Loop
+		while ( $query->have_posts() ) {
+		$query->the_post(); ?>
+						<?php the_post_thumbnail( "large", array( "class"=>"img-fluid"));?>
+						<div class="media mt-1">
+							<span class="media-left mr-1" href="#">
+								<?php echo types_render_field( "icono", array( "class"=>"media-object"));?>
+							</span>
+							<div class="media-body">
+								Autor<br>
+								<strong class="text-uppercase"><?php the_title('<h6 class="display-1">', '</h6>'); ?></strong>
+							</div>
+						</div>
+		<?php } wp_reset_postdata(); ?>
+	</div>
 
-			<ul class="card-group nav flex-column flex-sm-row" role="tablist">
-			<?php $no_proyectos = -1;
-			$args = array('post_type'=>'modelo','tax_query'=>array(array('taxonomy'=>'categoria-modelo','field'=>'slug','terms'=>'proyecto-ganador',),),'posts_per_page'=>$no_proyectos,'orderby'=>'rand');
-
-			// The Query
-			$query = new WP_Query( $args );
-			// The Loop
-			while ( $query->have_posts() ) {
-			$query->the_post(); ?>
-				<a class="col-modelo elije-modelo nav-item nav-link0" data-toggle="tab" role="tab" href="#<?php echo $post->post_name; ?>">
-				<div class="card-poster-notas" <?php poster_bg(); ?> ></div>
-				<div class="media card-block">
-						<?php if (types_render_field("icono")) echo types_render_field( "icono", array( "class"=>"" ));?>
-					<div class="media-body">
-						AUTOR
-						<?php the_title('<h4 class="display-1">','</h4>'); ?>
-					</div>
-				</div>
-				</a>
-			<?php } wp_reset_postdata(); ?>
-			</ul>
-		</div>
-
-		<div id="elegi-superficie" class="my-2">
+		<div id="elegi-superficie0" class="my-2">
 			<div class="alert bg-grisclaro text-white">2- Seleccioná la superficie</div>
 
-			<div class="tab-content">
 				<?php $tabs_variante=1;
 				while ( $query->have_posts() ) {
 					$query->the_post(); ?>
-					<div class="tab-pane fade<?php if ($tabs_variante==1) echo " in active"; ?>" id="<?php echo $post->post_name; ?>" role="tabpanel" >
+					<div class="tab-pane" id="<?php echo $post->post_name; ?>" role="tabpanel" >
 						<ul class="nav nav-tabs" role="tablist">
 							<?php
 							$childargs = array(
@@ -71,13 +69,13 @@
 												echo "<br>".$personas." - ".$personas_max." personas"; ?></p>
 												<hr>
 												<div class="row">
-													<div class="col-xs">
+													<div class="col">
 														<?php $dormitorios = types_render_field( "dormitorios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$dormitorios.'</span>'; if ($dormitorios>1) echo " Dormitorios"; else echo " Dormitorio"; ?><br>
 														<?php $banos = types_render_field( "banos", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$banos.'</span>'; if ($banos>1) echo " Baños"; else echo " Baño"; ?><br>
 														<?php $patios = types_render_field( "patios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$patios.'</span>'; if ($patios>1) echo " Patios"; else echo " Patio"; ?><br>
 														<?php $living = types_render_field( "living", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$living."</span> Living"; ?><br>
 													</div>
-													<div class="col-xs">
+													<div class="col">
 														<?php $superficie = types_render_field( "superficie", array( "post_id"=>$child_post->ID)); echo 'Superficie<br><span class="text-primary">'.$superficie.'</span>'; ?>
 													</div>
 												</div>
@@ -93,7 +91,6 @@
 							$tabs_variante++;
 						}
 						wp_reset_postdata(); ?>
-					</div>
 		</div>
 
 		<div id="calcula-cuotas">
@@ -160,56 +157,6 @@
 
 		</div>
 
-		<!-- <div id="precalificacion">
-			<div class="alert bg-grisclaro text-white">4- Precalificación</div>
-
-			<div class="form-group row">
-				<label for="valor_del_lote" class="col-xs-3 col-form-label">Valor del Lote</label>
-				<div class="col-xs-9">
-					<div class="input-group">
-						<div class="input-group-addon">$</div>
-						<input class="form-control" type="text" value="" id="valor_del_lote">
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label for="lo_pagaste_en_cuotas" class="col-xs-3 col-form-label">Lo pagaste en cuotas?</label>
-				<div class="col-xs-9">
-					<label class="custom-control custom-radio">
-					  <input id="radio1" name="radio" type="radio" class="custom-control-input">
-					  <span class="custom-control-indicator"></span>
-					  <span class="custom-control-description">Si</span>
-					</label>
-					<label class="custom-control custom-radio">
-					  <input id="radio2" name="radio" type="radio" class="custom-control-input">
-					  <span class="custom-control-indicator"></span>
-					  <span class="custom-control-description">No</span>
-					</label>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label for="valor_de_las_cuotas" class="col-xs-3 col-form-label">Valor de las Cuotas</label>
-				<div class="col-xs-9">
-					<div class="input-group">
-						<div class="input-group-addon">$</div>
-						<input class="form-control" type="text" value="" id="valor_de_las_cuotas">
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label for="contactar" class="col-xs-3 col-form-label"></label>
-				<div class="col-xs-9">
-					<div class="input-group">
-						<a class="btn btn-default" href="">Deseo ser contactado</a>
-					</div>
-				</div>
-			</div>
-
-			<p class="text-xs-center">Te estaremos contactando a la brevedad para coordinar una reunión personal.</p>
-		</div> -->
 		<div class="text-xs-center mt-2">
 		<a class="btn btn-lg btn-default" href="<?php echo site_url(); ?>/contactarme">Deseo ser contactado</a>
 	</div>
