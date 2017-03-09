@@ -41,7 +41,7 @@ $the_query = new WP_Query( $args ); ?>
 </div>
 
 <div class="container-fluid text-center">
-	<img class="img-fluid" src="<?php echo get_template_directory_uri ().'/dist/images/cuadro1.png'; ?>">
+	<img class="img-fluid" src="<?php echo get_home_url ().'/wp-content/uploads/2017/02/sistemas-constructivos.png'; ?>">
 </div>
 
 <!-- PREVENTA -->

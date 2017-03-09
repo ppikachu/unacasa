@@ -10,7 +10,7 @@ function remove_dashboard_meta() {
         //remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
         remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
         //remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
-        remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+        // remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
         //remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
         //remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');//since 3.8
 }
@@ -37,15 +37,6 @@ function custom_class( $classes ) {
     return $classes;
 }
 
-// solo los ganadores en archive modelos
-// if (!is_admin()) add_action('pre_get_posts', 'solo_ganadores' );
-//
-// function solo_ganadores( $wp_query ) {
-// 	if( is_post_type_archive('modelo') ) {
-// 		set_query_var('cat', '12' );
-// 	}
-// }
-
 function wpdocs_all_posts_on_videos( $query ) {
     if ( is_post_type_archive( 'video' )  ) {
         $query->set( 'posts_per_page', -1 );
@@ -61,7 +52,7 @@ add_filter( 'embed_oembed_html','bootstrap_wrap_oembed',10,1);
 
 function poster( $media_id ) {
 	$poster = wp_get_attachment_image_src( $media_id, 'large' , false );
-	return $poster[0];
+	echo 'style="background-image:url('.$poster[0].'); background-size:cover; background-position:center;"';
 }
 
 function poster_bg( $size="large",$post_id="post") {

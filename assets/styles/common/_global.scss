@@ -501,7 +501,7 @@ $poster-height-landscape-mobile: 90vh;
 
 .entry-content {
 	padding-bottom: $spacer-y*2;
-	.img-fluid, img {
+	.img-fluid {
 		width: 100%;
 	}
 }
@@ -549,6 +549,15 @@ $poster-height-landscape-mobile: 90vh;
 
 .fa-male {
 	font-size: 150%;
+}
+
+// arquitectos
+.attachment-thumbnail {
+	width: 72px;
+}
+
+.maps-frame {
+	width: 100%;
 }
 
 .container-video {

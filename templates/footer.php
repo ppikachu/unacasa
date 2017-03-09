@@ -30,7 +30,8 @@
       <p><a href="tel:+54 11 5236 0196">+54 11 5236 0196</a><br>
         Edificio SAFICO<br>
         Av. Corrientes 456, 5º Piso. CABA.<br>
-        <a target="_blank" href="mailto:info@unacasa.com.ar">info@unacasa.com.ar</a>
+        <a target="_blank" href="mailto:info@unacasa.com.ar">info@unacasa.com.ar</a><br><br>
+				<a target="_blank" href="/www/terminos-y-condiciones">El uso de este sitio web implica la aceptación de los siguientes <b>Términos y Condiciones</b> y de las <b>Políticas de Privacidad</b></a>
       </p>
     </div>
   </div>

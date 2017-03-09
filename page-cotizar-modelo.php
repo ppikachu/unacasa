@@ -47,13 +47,13 @@
 							$tabs=1;
 							foreach ($child_posts as $child_post) { ?>
 								<li class="nav-item">
-									<a class="nav-link precio <?php if ($tabs==1) echo "active0 "; echo $child_post->post_name; ?>" precio="<?php echo types_render_field( "precio", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>" data-toggle="tab" href="#<?php echo $child_post->post_name; ?>" role="tab"><?php echo $child_post->post_title; ?></a>
+									<a class="nav-link precio <?php if ($tabs==1) echo "active "; echo $child_post->post_name; ?>" precio="<?php echo types_render_field( "precio", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>" data-toggle="tab" href="#<?php echo $child_post->post_name; ?>" role="tab"><?php echo $child_post->post_title; ?></a>
 								</li>
 								<?php $tabs++; } ?>
 							</ul>
 							<div class="tab-content">
 								<?php $tabs=1; foreach ($child_posts as $child_post) { ?>
-									<div class="tab-pane fade<?php if ($tabs==1) echo " show in active0"; ?>" id="<?php echo $child_post->post_name; ?>" role="tabpanel">
+									<div class="tab-pane fade<?php if ($tabs==1) echo " show in active"; ?>" id="<?php echo $child_post->post_name; ?>" role="tabpanel">
 										<div class="row flex-items-xs-middle">
 											<div class="col-sm-7 mt-2"><a href="<?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>" rel="lightbox[<?php echo $child_post->post_name;?>]"><?php echo types_render_field( "plano", array( "class"=>"img-fluid","post_id"=>$child_post->ID)); ?></a></div>
 											<div class="col-sm-5">

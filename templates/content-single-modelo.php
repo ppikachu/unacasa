@@ -44,7 +44,7 @@
             </ul>
             <div class="tab-content">
               <?php $tabs=1; foreach ($child_posts as $child_post) { ?>
-                <div class="tab-pane fade<?php if ($tabs==1) echo " in active"; ?>" id="<?php echo $child_post->post_name; ?>" role="tabpanel">
+                <div class="tab-pane fade<?php if ($tabs==1) echo " show in active"; ?>" id="<?php echo $child_post->post_name; ?>" role="tabpanel">
                   <div class="row flex-items-xs-middle">
                     <div class="col-md-7"><a href="<?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>" rel="lightbox[<?php echo $child_post->post_name;?>]"><?php echo types_render_field( "plano", array( "post_id"=>$child_post->ID,"class"=>"mt-2")); ?></a></div>
                     <div class="col-md-5 small">
