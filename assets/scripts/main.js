@@ -34,6 +34,10 @@
           filterValue = $(this).attr('data-filter');
           $("[class='cocinas']").hide();
         });
+
+				// MODAL
+				$('#ModalIntro').modal('show');
+
       }
     },
     'cotizar': {

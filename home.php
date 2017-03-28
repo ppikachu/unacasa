@@ -26,7 +26,8 @@ $the_query = new WP_Query( $args ); ?>
 
 <div class="jumbotron jumbotron-fluid bg-inverse text-white my-1">
 	<div class="container">
-		<h6 class="display-4 text-center text-white"><span class="text-primary"><?php echo $the_query->post_count; ?> DISEÑOS |</span> Múltiples combinaciones</h6>
+		<h6 class="display-4 text-center text-primary"><?php echo 'Diseños Innovadores I Múltiples combinaciones.'; ?></h6>
+		<!-- <h6 class="display-4 text-center text-white"><span class="text-primary"><?php echo $the_query->post_count; ?> DISEÑOS |</span> Múltiples combinaciones</h6> -->
 	</div>
 </div>
 
@@ -114,4 +115,18 @@ $the_query = new WP_Query( $args ); ?>
 	<div class="container">
 		<?php the_content(); wp_reset_postdata(); ?>
 	</div>
+</div>
+
+<!-- MODAL -->
+<div id="ModalIntro" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <?php $args = array('pagename' => 'modal_intro'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
+			<?php the_content(); ?>
+			<?php wp_reset_postdata(); ?>
+      <div class="modal-body text-center">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Continuar al sitio</button>
+      </div>
+    </div>
+  </div>
 </div>

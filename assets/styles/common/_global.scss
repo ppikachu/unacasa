@@ -4,6 +4,10 @@ body.logged-in {
 	}
 }
 
+.modal-open {
+  padding-right: 0 !important; //arregla padding al abrirse el modal
+}
+
 .card {
 	overflow: hidden;
 }
