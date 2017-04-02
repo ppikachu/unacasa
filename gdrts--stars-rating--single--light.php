@@ -32,7 +32,7 @@
         ?>
 
             <div class="gdrts-rating-thanks">
-                <?php _e("Thanks for your vote!", "gd-rating-system"); ?>
+                <?php _e("Gracias por el voto!", "gd-rating-system"); ?>
             </div>
 
         <?php

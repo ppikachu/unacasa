@@ -1,6 +1,6 @@
 <div class="page-header jumbotron bg-primary">
-	<div class="container text-center">
-		<h1 class="display-3 text-white">CIENTOS DE DISEÑOS <span class="text-default">Múltiples combinaciones</span></h1>
+	<div class="container text-xs-center">
+		<h1 class="display-3 text-default"><?php echo $wp_the_query->post_count; ?> DISEÑOS <span class="text-white">Múltiples combinaciones</span></h1>
 	</div>
 </div>
 

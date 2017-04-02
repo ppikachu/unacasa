@@ -548,7 +548,7 @@ $poster-height-landscape-mobile: 90vh;
 }
 
 .single-modelo .entry-content {
-	font-size: $font-size-lg;
+	//font-size: $font-size-lg;
 }
 
 .fa-male {
@@ -573,6 +573,12 @@ $poster-height-landscape-mobile: 90vh;
 	}
 	@include make-container-max-widths();
 }
+
+// comentarios
+.comment-metadata {
+	@extend .my-1;
+}
+
 
 #menu-pie {
 		a {

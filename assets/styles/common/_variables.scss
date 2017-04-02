@@ -165,12 +165,12 @@ $font-size-h5:               1.1rem !default;
 $font-size-h6:               1rem !default;
 
 $display1-size:               1.3rem !default;
-$display2-size:               5.5rem !default;
+$display2-size:               1.1rem !default;
 $display3-size:               2.6rem !default;
 $display4-size:               1.7rem !default;
 
 $display1-weight:             700 !default;
-$display2-weight:             300 !default;
+$display2-weight:             700 !default;
 $display3-weight:             300 !default;
 $display4-weight:             300 !default;
 
@@ -288,7 +288,7 @@ $btn-border-radius-sm:           $border-radius-sm !default;
 $input-padding-x:                0 !default;
 $input-padding-y:                .375rem !default;
 
-$input-bg:                       transparent !default;
+$input-bg:                       $gray-lighter !default;
 $input-bg-disabled:              transparent !default;
 
 $input-color:                    $gray-dark !default;
