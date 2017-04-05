@@ -4,13 +4,20 @@
 	</div>
 </div>
 
-<?php if (!have_posts()) : ?>
-  <div class="alert alert-warning">
-    <?php _e('Sorry, no results were found.', 'sage'); ?>
-  </div>
-  <?php get_search_form(); ?>
-<?php endif; ?>
-
-<?php while (have_posts()) : the_post(); ?>
-  <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-<?php endwhile; ?>
+<div class="container-fluid">
+<div class="row">
+	<div class="col-3 mt-3">
+		<?php dynamic_sidebar('sidebar-buscador'); ?>
+	</div>
+	<div id="resultados" class="col">
+		<?php if (!have_posts()) : ?>
+		  <div class="alert alert-warning mt-3">
+		    No se encontraron modelos con las características elegidas.
+		  </div>
+		<?php endif; ?>
+		<?php while (have_posts()) : the_post(); ?>
+		  <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+		<?php endwhile; ?>
+	</div>
+</div>
+</div>

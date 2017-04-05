@@ -17,7 +17,7 @@ $arq_logo = types_render_field( 'logo', array( 'post_id' => $arq_id,'class'=>'me
 $arq_name = $arq_post->post_title;
 ?>
 
-<div class="container my-2">
+<div class="container-fluid my-2">
 	<div class="row">
 		<div class="col-sm-6 col-md-2">
 			<p><?php $personas = types_render_field( "personas-modelo", array( "raw"=>"true"));

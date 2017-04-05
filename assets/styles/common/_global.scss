@@ -4,6 +4,10 @@ body.logged-in {
 	}
 }
 
+.container-fluid {
+	padding: 0;
+}
+
 .modal-open {
   padding-right: 0 !important; //arregla padding al abrirse el modal
 }

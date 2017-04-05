@@ -36,7 +36,7 @@
         });
 
 				// MODAL
-				$('#ModalIntro').modal('show');
+				//$('#ModalIntro').modal('show');
 
       }
     },

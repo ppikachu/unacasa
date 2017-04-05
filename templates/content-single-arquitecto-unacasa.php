@@ -1,9 +1,9 @@
 <?php while (have_posts()) : the_post(); ?>
-  <?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
+<?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
 <div class="bg-primary">
 	<div class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col-md-4">
 				<?php if (types_render_field("logo")) echo types_render_field( "logo", array( "class"=>"d-flex mr-1","size"=>"medium" )); ?>
 				<?php gdrts_render_rating(array('echo' => true, 'entity' => 'posts', 'name' => 'arquitecto-unacasa', 'id' => $post->ID)); ?>
 
@@ -54,28 +54,37 @@
 		</div>
 	</div>
 </div>
-<?php endwhile; ?>
+
 <div class="container">
-
-	<h1 class="text-center mt-3">PROYECTOS</H1>
-
+	<h2 class="text-center my-2">PROYECTOS</h2>
 </div>
+
 	<?php
 	$tabs=1;
 	$childargs = array(
-		'post_type' => 'variante',
+		'post_type' => 'modelo',
 		'numberposts' => -1,
 		'orderby' => 'title',
 		'order' => 'ASC',
-		'meta_query' => array(array('key' => '_wpcf_belongs_modelo_id', 'value' => get_the_ID()))
+		'meta_query' => array(array('key' => '_wpcf_belongs_arquitecto-unacasa_id', 'value' => get_the_ID()))
 	);
 	$child_posts = get_posts($childargs);
 	if ($child_posts) : ?>
+		<div id="modelos_hijo" class="card-group">
 			<?php foreach ($child_posts as $child_post) { ?>
-				<li class="nav-item">
-					<a class="small nav-link <?php if ($tabs==1) echo "active "; echo $child_post->post_name; ?>" data-toggle="tab" href="#<?php echo $child_post->post_name; ?>" role="tab"><?php echo $child_post->post_title; ?></a>
-				</li>
-				<?php $tabs++; } ?>
+				<div class="col-modelo">
+					<a href="<?php the_permalink(); ?>" class="card-poster-casas" <?php poster_bg('medium_large',$child_post->ID); ?> ></a>
+					<div class="card-block row">
+						<div class="col">
+							<?php echo $child_post->post_title; ?>
+						</div>
+						<div class="col">
+							Datos
+						</div>
+					</div>
+				</div>
+			<?php $tabs++; } ?>
+		</div>
+	<?php endif; ?>
 
-		<?php endif; ?>
-			<br>
+	<?php endwhile; ?>

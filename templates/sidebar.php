@@ -1,1 +1,1 @@
-<?php dynamic_sidebar('sidebar-primary'); ?>
+<div class="mt-3"><?php dynamic_sidebar('sidebar-buscador'); ?></div>

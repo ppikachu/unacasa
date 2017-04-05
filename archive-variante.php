@@ -11,6 +11,9 @@
   <?php get_search_form(); ?>
 <?php endif; ?>
 
+<?php echo do_shortcode( '[searchandfilter id="2577"]' ); ?>
+<?php echo do_shortcode( '[searchandfilter id="2577" show="results"]' ); ?>
+
 <?php while (have_posts()) : the_post(); ?>
   <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
 <?php endwhile; ?>

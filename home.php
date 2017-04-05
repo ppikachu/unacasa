@@ -24,10 +24,9 @@
 $args = array('post_type'=>'modelo','tax_query'=>array(array('taxonomy'=>'categoria-modelo','field'=>'slug','terms'=>'destacado-inicio',),),'posts_per_page'=>$no_proyectos,'orderby'=>'rand');
 $the_query = new WP_Query( $args ); ?>
 
-<div class="jumbotron jumbotron-fluid bg-inverse text-white my-1">
+<div class="bg-inverse text-white my-1 py-2">
 	<div class="container">
-		<h6 class="display-4 text-center text-primary"><?php echo 'Diseños Innovadores I Múltiples combinaciones.'; ?></h6>
-		<!-- <h6 class="display-4 text-center text-white"><span class="text-primary"><?php echo $the_query->post_count; ?> DISEÑOS |</span> Múltiples combinaciones</h6> -->
+		<h1 class="display-3 text-primary">CIENTOS DE DISEÑOS |<span class="text-white">Múltiples combinaciones</span></h1>
 	</div>
 </div>
 
@@ -41,9 +40,9 @@ $the_query = new WP_Query( $args ); ?>
 	<?php } wp_reset_postdata(); ?>
 </div>
 
-<div class="container-fluid text-center">
-	<img class="img-fluid" src="<?php echo get_home_url ().'/wp-content/uploads/2017/02/sistemas-constructivos.png'; ?>">
-</div>
+
+<img class="img-fluid" src="<?php echo get_home_url ().'/wp-content/uploads/2017/02/sistemas-constructivos.png'; ?>">
+
 
 <!-- PREVENTA -->
 <?php $args = array('pagename' => 'preventa'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
@@ -92,7 +91,7 @@ $the_query = new WP_Query( $args ); ?>
 </div>
 
 <!-- Evento Lanzamientos -->
-<?php $args = array('pagename' => 'evento-lanzamientos'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
+<!-- <?php $args = array('pagename' => 'evento-lanzamientos'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
 <div class="row no-gutters mt-1 bg-inverse">
 	<div class="col-lg-6 push-lg-6">
 		<div class="jumbotron">
@@ -107,10 +106,16 @@ $the_query = new WP_Query( $args ); ?>
 		</div>
 	</div>
 </div>
-<?php wp_reset_postdata(); ?>
+<?php wp_reset_postdata(); ?> -->
 
 <!-- DONDE ENCONTRARNOS -->
 <?php $args = array('pagename' => 'donde-encontrarnos'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
+<div class="bg-faded py-2 mt-1">
+	<div class="container">
+		<h2 class="text-primary"><?php the_title(); ?></h2>
+		<?php the_excerpt(); ?>
+	</div>
+</div>
 <div class="jumbotron jumbotron-fluid">
 	<div class="container">
 		<?php the_content(); wp_reset_postdata(); ?>
@@ -118,7 +123,7 @@ $the_query = new WP_Query( $args ); ?>
 </div>
 
 <!-- MODAL -->
-<div id="ModalIntro" class="modal fade">
+<!-- <div id="ModalIntro" class="modal fade">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <?php $args = array('pagename' => 'modal_intro'); $the_query = new WP_Query( $args ); $the_query->the_post(); ?>
@@ -129,4 +134,4 @@ $the_query = new WP_Query( $args ); ?>
       </div>
     </div>
   </div>
-</div>
+</div> -->
