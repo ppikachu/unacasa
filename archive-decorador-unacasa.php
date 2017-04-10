@@ -1,12 +1,12 @@
-<div class="poster jumbotron jumbotron-fluid" <?php poster(2613); ?>>
+<div class="poster jumbotron jumbotron-fluid" <?php poster(2645); ?>>
 </div>
 
 <div class="jumbotron bg-primary">
 	<div class="container text-xs-center">
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<h1 class="display-3 text-default">Arquitectos</h1>
-				<?php $obj = get_post_type_object( 'arquitecto-unacasa' ); echo $obj->description; ?>
+				<h1 class="display-3 text-default">Decoradores</h1>
+				<?php $obj = get_post_type_object( 'decorador-unacasa' ); echo $obj->description; ?>
 			</div>
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 
 <div class="bg-faded py-1">
 	<div class="container">
-		<?php echo do_shortcode('[searchandfilter slug="filtro-arquitectos-unacasa"]'); ?>
+		<?php echo do_shortcode('[searchandfilter slug="filtro-decoradores-unacasa"]'); ?>
 	</div>
 </div>
 

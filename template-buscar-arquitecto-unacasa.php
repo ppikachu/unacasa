@@ -1,4 +1,9 @@
-<div class="poster jumbotron jumbotron-fluid" <?php poster(2613); ?>>
+<?php
+/**
+ * Template Name: Buscar Arquitectos Unacasa
+ */
+?>
+<div class="poster jumbotron jumbotron-fluid" <?php poster(559); ?>>
 </div>
 
 <div class="jumbotron bg-primary">
@@ -21,15 +26,11 @@
 
 <div class="bg-faded py-1">
 	<div class="container">
-		<?php echo do_shortcode('[searchandfilter slug="filtro-arquitectos-unacasa"]'); ?>
+		<?php echo do_shortcode('[searchandfilter id="2588"]'); ?>
 	</div>
 </div>
 
 
 <div class="container">
-	<div id="main">
-		<?php while (have_posts()) : the_post(); ?>
-			<?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-		<?php endwhile; ?>
-	</div>
+	<?php echo do_shortcode('[searchandfilter id="2588" show="results"]'); ?>
 </div>

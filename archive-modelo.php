@@ -7,7 +7,7 @@
 <div class="container-fluid">
 <div class="row">
 	<div class="col-3 mt-3">
-		<?php dynamic_sidebar('sidebar-buscador'); ?>
+		<?php echo do_shortcode('[searchandfilter slug="casas"]'); ?>
 	</div>
 	<div id="resultados" class="col">
 		<?php if (!have_posts()) : ?>

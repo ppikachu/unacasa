@@ -1,10 +1,10 @@
 <?php while (have_posts()) : the_post(); ?>
 <?php the_post_thumbnail( 'large', array('class' => 'img-fluid')); ?>
-<div class="bg-primary">
+<div class="bg-primary pb-3">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<?php if (types_render_field("logo")) echo types_render_field( "logo", array( "class"=>"d-flex mr-1","size"=>"medium" )); ?>
+				<?php if (types_render_field("logo")) echo types_render_field( "logo", array( "class"=>"d-flex mt-2","size"=>"medium" )); ?>
 				<?php gdrts_render_rating(array('echo' => true, 'entity' => 'posts', 'name' => 'arquitecto-unacasa', 'id' => $post->ID)); ?>
 
 				<?php if (types_render_field("tel")) { ?>
@@ -36,33 +36,35 @@
 					</p>
 				<?php } ?>
 
-				<a href="#" class="btn btn-primary">CONTACTAR</a>
+				<a href="#" class="btn btn-secondary">CONTACTAR</a>
 			</div>
 			<div class="col">
 				<h2 class="entry-title"><?php echo get_the_title();?></h2>
-				<?php the_content(); ?>
+				<?php echo types_render_field("descripcion"); ?>
+
+				<?php $direccion = types_render_field("direccion");
+					$direccion = str_replace(' ', '+', $direccion);
+					$zoom = types_render_field("zoom");
+					$options = get_option('lsv_options');
+					if ($direccion) {	?>
+						<div class="iframe-container mt-3">
+							<iframe class="maps-frame" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<?php echo $direccion; ?>&zoom=<?php echo $zoom; ?>&key=<?php echo of_get_option('maps_api'); ?>" allowfullscreen></iframe>
+						</div>
+				<?php }	?>
 			</div>
-			<?php $direccion = types_render_field("direccion");
-				$direccion = str_replace(' ', '+', $direccion);
-				$zoom = types_render_field("zoom");
-				$options = get_option('lsv_options');
-				if ($direccion) {	?>
-					<div class="iframe-container mb-3">
-						<iframe class="maps-frame" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<?php echo $direccion; ?>&zoom=<?php echo $zoom; ?>&key=<?php echo of_get_option('maps_api'); ?>" allowfullscreen></iframe>
-					</div>
-			<?php }	?>
 		</div>
 	</div>
 </div>
 
-<div class="container">
+<div class="container pt-3">
+	<?php the_content(); ?>
 	<h2 class="text-center my-2">PROYECTOS</h2>
 </div>
 
 	<?php
 	$tabs=1;
 	$childargs = array(
-		'post_type' => 'modelo',
+		'post_type' => 'proyecto',
 		'numberposts' => -1,
 		'orderby' => 'title',
 		'order' => 'ASC',
@@ -76,10 +78,14 @@
 					<a href="<?php the_permalink(); ?>" class="card-poster-casas" <?php poster_bg('medium_large',$child_post->ID); ?> ></a>
 					<div class="card-block row">
 						<div class="col">
-							<?php echo $child_post->post_title; ?>
+							<h6 class="bg-primary p-1"><?php echo $child_post->post_title; ?></h6>
 						</div>
 						<div class="col">
-							Datos
+							Ubicación: <?php echo types_render_field( "ubicacion", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?><br>
+							Descripción: <?php echo types_render_field( "descripcion-proyecto", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?><br>
+							Superficie Construida: <?php echo types_render_field( "superficie-construida", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?> mt<sup>2</sup><br>
+							Año: <?php echo types_render_field( "fecha", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?><br>
+							Estado: <?php echo types_render_field( "estado", array( "post_id"=>$child_post->ID,"raw"=>"true")); ?>
 						</div>
 					</div>
 				</div>

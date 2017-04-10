@@ -22,6 +22,24 @@ function load_google_fonts() {
 	echo '<link href="http://fonts.googleapis.com/css?family=' . GOOGLE_FONTS . '" rel="stylesheet" type="text/css" />'."\n";
 }
 
+function my_theme_archive_title( $title ) {
+    if ( is_category() ) {
+        $title = single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        $title = single_tag_title( '', false );
+    } elseif ( is_author() ) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    } elseif ( is_post_type_archive() ) {
+        $title = post_type_archive_title( '', false );
+    } elseif ( is_tax() ) {
+        $title = single_term_title( '', false );
+    }
+
+    return $title;
+}
+
+add_filter( 'get_the_archive_title', 'my_theme_archive_title' );
+
 add_action( 'wp_head', 'load_google_fonts' , 1);
 
 function custom_excerpt_length( $length ) {
@@ -59,7 +77,8 @@ function poster_bg( $size="large",$post_id="post") {
 	global $post;
 	if ("post" === $post_id) $post_id = $post->ID;
 	$poster = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size , false );
-	echo 'style="background-image:url('.$poster[0].'); background-size:cover; background-position:center;"';
+	if ($poster) echo 'style="background-image:url('.$poster[0].'); background-size:cover; background-position:center;"';
+	else echo 'style="background-image:url('.get_template_directory_uri().'/dist/images/imagen-default.png); background-size:cover; background-position:center;"';
 }
 
 function hex2rgb($hexColor) {

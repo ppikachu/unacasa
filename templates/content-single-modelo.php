@@ -136,16 +136,40 @@
 			</thead>
 			<tbody>
 				<tr>
-					<th class="text-primary" scope="row">Pintura antióxido / exterior. Colores a elección</th>
+					<td class="" scope="row">Pintura antióxido / exterior. Colores a elección</td>
 					<td class="text-center"><?php echo types_render_field( "pintura-a", array( "raw"=>"true")); ?></td>
 					<td class="text-center"><?php echo types_render_field( "pintura-b", array( "raw"=>"true")); ?></td>
 					<td class="text-center"><?php echo types_render_field( "pintura-c", array( "raw"=>"true")); ?></td>
 				</tr>
 				<tr>
-					<th class="text-primary" scope="row">Tratamiento impermeabilizante con pintura asfáltica</th>
+					<td class="" scope="row">Tratamiento impermeabilizante con pintura asfáltica</td>
 					<td class="text-center"><?php if (types_render_field( "tratamiento-pintura", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
 					<td class="text-center"><?php if (types_render_field( "tratamiento-pintura", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
 					<td class="text-center"><?php if (types_render_field( "tratamiento-pintura", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Postigos externos de seguridad en cada abertura con herrajes</td>
+					<td class="text-center"><?php if (types_render_field( "postigos-externos", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "postigos-externos", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "postigos-externos", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Postigo principal de acceso revestido en madera</td>
+					<td class="text-center"><?php if (types_render_field( "postigo-principal", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "postigo-principal", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "postigo-principal", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Luminaria externa perimetral</td>
+					<td class="text-center"><?php if (types_render_field( "luminaria-externa-perimetral", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "luminaria-externa-perimetral", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "luminaria-externa-perimetral", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Revestimiento externo</td>
+					<td class="text-center"><?php if (types_render_field( "revestimiento-externo", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "revestimiento-externo", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "revestimiento-externo", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
 				</tr>
 			</tbody>
 			<thead>
@@ -158,16 +182,188 @@
 			</thead>
 			<tbody>
 				<tr>
-					<th class="text-primary" scope="row">Aislante térmico / acústico / contra el fuego</th>
+					<td class="" scope="row">Aislante térmico / acústico / contra el fuego</td>
 					<td class="text-center"><?php if (types_render_field( "aislante", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
 					<td class="text-center"><?php if (types_render_field( "aislante", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
 					<td class="text-center"><?php if (types_render_field( "aislante", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
 				</tr>
 				<tr>
-					<th class="text-primary" scope="row">Pisos</th>
+					<td class="" scope="row">Pisos</td>
 					<td class="text-center"><?php echo types_render_field( "pisos-a", array( "raw"=>"true")); ?></td>
 					<td class="text-center"><?php echo types_render_field( "pisos-b", array( "raw"=>"true")); ?></td>
 					<td class="text-center"><?php echo types_render_field( "pisos-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Revestimiento</td>
+					<td class="text-center"><?php echo types_render_field( "revestimiento-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "revestimiento-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "revestimiento-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Pintura</td>
+					<td class="text-center"><?php echo types_render_field( "pintura-interior-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "pintura-interior-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "pintura-interior-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Iluminación</td>
+					<td class="text-center"><?php echo types_render_field( "iluminacion-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "iluminacion-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "iluminacion-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Puertas de división de ambientes</td>
+					<td class="text-center"><?php echo types_render_field( "puertas-division-ambientes-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "puertas-division-ambientes-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "puertas-division-ambientes-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Molduras en telgopor y zócalos</td>
+					<td class="text-center"><?php if (types_render_field( "molduras", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "molduras", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "molduras", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Conexión para aire acondicionado en living y dormitorios</td>
+					<td class="text-center"><?php if (types_render_field( "conexion-ac", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "conexion-ac", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "conexion-ac", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr class="display-2">
+					<th class="text-primary">Cocina & Living Comedor</th>
+					<th class="text-primary text-center">Obra Gris</th>
+					<th class="text-primary text-center">Llave en mano</th>
+					<th class="text-primary text-center">Editor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="" scope="row">Termotanque primera marca eléctrico de 80 litros</td>
+					<td class="text-center"><?php echo types_render_field( "termotanque-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "termotanque-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "termotanque-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Mesada</td>
+					<td class="text-center"><?php echo types_render_field( "mesada-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "mesada-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "mesada-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Muebles</td>
+					<td class="text-center"><?php echo types_render_field( "muebles-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "muebles-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "muebles-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Cerámica en sobre mesada</td>
+					<td class="text-center"><?php if (types_render_field( "ceramica-mesada", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "ceramica-mesada", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "ceramica-mesada", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Extractor</td>
+					<td class="text-center"><?php if (types_render_field( "extractor", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "extractor", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "extractor", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Barra desayunadora en melamina</td>
+					<td class="text-center"><?php if (types_render_field( "barra-desayunadora", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "barra-desayunadora", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "barra-desayunadora", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr class="display-2">
+					<th class="text-primary">Dormitorio</th>
+					<th class="text-primary text-center">Obra Gris</th>
+					<th class="text-primary text-center">Llave en mano</th>
+					<th class="text-primary text-center">Editor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="" scope="row">Espacioso placard</td>
+					<td class="text-center"><?php echo types_render_field( "placard-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "placard-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "placard-c", array( "raw"=>"true")); ?></td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr class="display-2">
+					<th class="text-primary">Baño</th>
+					<th class="text-primary text-center">Obra Gris</th>
+					<th class="text-primary text-center">Llave en mano</th>
+					<th class="text-primary text-center">Editor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="" scope="row">Grifería</td>
+					<td class="text-center"><?php echo types_render_field( "griferia-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "griferia-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "griferia-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Sanitarios</td>
+					<td class="text-center"><?php echo types_render_field( "sanitarios-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "sanitarios-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "sanitarios-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Mueble de lavabo</td>
+					<td class="text-center"><?php echo types_render_field( "mueble-de-lavabo-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "mueble-de-lavabo-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "mueble-de-lavabo-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Puerta corrediza con guía</td>
+					<td class="text-center"><?php if (types_render_field( "puerta-corrediza", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "puerta-corrediza", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "puerta-corrediza", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Ducha con mampara fija</td>
+					<td class="text-center"><?php if (types_render_field( "ducha-mampara-fija", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "ducha-mampara-fija", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "ducha-mampara-fija", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Revestimiento interior</td>
+					<td class="text-center"><?php echo types_render_field( "revestimiento-interior-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "revestimiento-interior-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "revestimiento-interior-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Piso y ducha</td>
+					<td class="text-center"><?php echo types_render_field( "piso-y-ducha-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "piso-y-ducha-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "piso-y-ducha-c", array( "raw"=>"true")); ?></td>
+				</tr>
+				<tr>
+					<td class="" scope="row">Detalles de diseño con guardas</td>
+					<td class="text-center"><?php if (types_render_field( "detalles-guardas", array( "option"=>0))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "detalles-guardas", array( "option"=>1))==1) echo "x"; else echo "-"; ?></td>
+					<td class="text-center"><?php if (types_render_field( "detalles-guardas", array( "option"=>2))==1) echo "x"; else echo "-"; ?></td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr class="display-2">
+					<th class="text-primary">Aberturas</th>
+					<th class="text-primary text-center">Obra Gris</th>
+					<th class="text-primary text-center">Llave en mano</th>
+					<th class="text-primary text-center">Editor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="" scope="row">Aberturas</td>
+					<td class="text-center"><?php echo types_render_field( "aberturas-a", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "aberturas-b", array( "raw"=>"true")); ?></td>
+					<td class="text-center"><?php echo types_render_field( "aberturas-c", array( "raw"=>"true")); ?></td>
 				</tr>
 			</tbody>
 		</table>
