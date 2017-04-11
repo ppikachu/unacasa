@@ -71,18 +71,17 @@
 												echo "<br>".$personas." - ".$personas_max." personas"; ?></p>
 												<hr>
 												<div class="row">
-													<div class="col-xs">
+													<div class="col">
 														<?php $dormitorios = types_render_field( "dormitorios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$dormitorios.'</span>'; if ($dormitorios>1) echo " Dormitorios"; else echo " Dormitorio"; ?><br>
 														<?php $banos = types_render_field( "banos", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$banos.'</span>'; if ($banos>1) echo " Baños"; else echo " Baño"; ?><br>
 														<?php $patios = types_render_field( "patios", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$patios.'</span>'; if ($patios>1) echo " Patios"; else echo " Patio"; ?><br>
 														<?php $living = types_render_field( "living", array( "post_id"=>$child_post->ID,"raw"=>"true")); echo '<span class="text-primary">'.$living."</span> Living"; ?><br>
 													</div>
-													<div class="col-xs">
+													<div class="col">
 														<?php $superficie = types_render_field( "superficie", array( "post_id"=>$child_post->ID)); echo 'Superficie<br><span class="text-primary">'.$superficie.'</span>'; ?>
 													</div>
 												</div>
-												<br>
-												<?php if (types_render_field( "memoria-descriptiva")) : ?><a class="btn btn-info" target="_blank" href="<?php echo types_render_field( "memoria-descriptiva", array( "post_id"=>$child_post->ID,"raw"=>"true"));?>">Ver memoria descriptiva</a><?php endif; ?>
+												<?php if (types_render_field( "memoria-descriptiva")) : ?><a class="mt-2 btn btn-info" target="_blank" href="<?php echo types_render_field( "memoria-descriptiva", array( "post_id"=>$child_post->ID,"raw"=>"true"));?>">Ver memoria descriptiva</a><?php endif; ?>
 											</div>
 										</div>
 									</div>
@@ -108,7 +107,6 @@
 				  <label for="monto_a_financiar" class="col-xs-4 col-md-3 col-form-label">Valor Total</label>
 					<div class="col-xs-8 col-md-9">
 					<div class="input-group">
-			      <div class="input-group-addon">$</div>
 			      <input class="form-control" type="text" value="" id="valor_total" disabled>
 			    </div>
 					</div>
@@ -118,7 +116,6 @@
 				  <label for="monto_a_financiar" class="col-xs-4 col-md-3 col-form-label">Monto a financiar</label>
 					<div class="col-xs-8 col-md-9">
 					<div class="input-group">
-			      <div class="input-group-addon">$</div>
 			      <input class="form-control" type="text" value="" id="monto_a_financiar" placeholder=" Max $525.000">
 			    </div>
 					</div>
@@ -163,8 +160,9 @@
 		<div id="precalificacion">
 			<div class="alert bg-grisclaro text-white">4- Precalificación</div>
 
+			<form id="form-precalificacion">
 			<div class="form-group row">
-				<label for="valor_del_lote" class="col-xs-3 col-form-label">Valor del Lote</label>
+				<label for="valor_del_lote" class="col-xs-4 col-md-3 col-form-label">Valor del Lote</label>
 				<div class="col-xs-9">
 					<div class="input-group">
 						<div class="input-group-addon">$</div>
@@ -174,7 +172,7 @@
 			</div>
 
 			<div class="form-group row">
-				<label for="lo_pagaste_en_cuotas" class="col-xs-3 col-form-label">Lo pagaste en cuotas?</label>
+				<label for="lo_pagaste_en_cuotas" class="col-xs-4 col-md-3 col-form-label">Lo pagaste en cuotas?</label>
 				<div class="col-xs-9">
 					<label class="custom-control custom-radio">
 					  <input id="radio1" name="radio" type="radio" class="custom-control-input">
@@ -190,7 +188,7 @@
 			</div>
 
 			<div class="form-group row">
-				<label for="valor_de_las_cuotas" class="col-xs-3 col-form-label">Valor de las Cuotas</label>
+				<label for="valor_de_las_cuotas" class="col-xs-4 col-md-3 col-form-label">Valor de las Cuotas</label>
 				<div class="col-xs-9">
 					<div class="input-group">
 						<div class="input-group-addon">$</div>
@@ -198,12 +196,13 @@
 					</div>
 				</div>
 			</div>
-
+			</form>
 			<p class="text-xs-center">Te estaremos contactando a la brevedad para coordinar una reunión personal.</p>
-		</div>
 
-		<div class="text-xs-center mt-2">
-			<a class="btn btn-lg btn-default" href="<?php echo site_url(); ?>/contactarme">Deseo ser contactado</a>
+			<div class="text-xs-center mt-2">
+				<a class="btn btn-lg btn-default" href="<?php echo site_url(); ?>/contactarme">Deseo ser contactado</a>
+			</div>
+
 		</div>
 
 </div>

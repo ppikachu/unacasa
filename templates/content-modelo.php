@@ -32,13 +32,19 @@ $arq_name = $arq_post->post_title;
 		</div>
 		<div class="col-sm-6 col-md-2">
 			<p>
-				<?php $dormitorios = types_render_field( "dormitorios-modelo", array("raw"=>"true")); echo '<span class="text-primary">'.$dormitorios.'</span>'; if (substr($dormitorios,-1)>1) echo " Dormitorios"; else echo " Dormitorio"; ?><br>
-				<?php $banos = types_render_field( "banos-modelo", array("raw"=>"true")); echo '<span class="text-primary">'.$banos.'</span>'; if (substr($banos,-1)>1) echo " Baños"; else echo " Baño"; ?><br>
+				<?php $dormitorios = types_render_field( "dormitorios-check", array("separator"=>"-")); echo '<span class="text-primary">'.$dormitorios.'</span>'; if (substr($dormitorios,-1)>1) echo " Dormitorios"; else echo " Dormitorio"; ?><br>
+				<?php $banos = types_render_field( "banos-check", array("separator"=>"-")); echo '<span class="text-primary">'.$banos.'</span>'; if (substr($banos,-1)>1) echo " Baños"; else echo " Baño"; ?><br>
 			</p>
 		</div>
 		<div class="col-sm-6 col-md-4">
 			<p>Superficie<br>
-				<?php $superficie = types_render_field( "superficies-modelo", array("raw"=>"true")); echo '<span class="text-primary">'.$superficie.'</span>'; ?>
+				<?php
+				$mt2_cubiertos_min = types_render_field( "mt2-cubiertos-min", array("raw"=>"true"));
+				$mt2_cubiertos_max = types_render_field( "mt2-cubiertos-max", array("raw"=>"true"));
+				$mt2_semicubiertos_min = types_render_field( "mt2-semicubiertos-min", array("raw"=>"true"));
+				$mt2_semicubiertos_max = types_render_field( "mt2-semicubiertos-max", array("raw"=>"true"));
+				echo '<span class="text-primary">'.$mt2_cubiertos_min.' a '.$mt2_cubiertos_max.' mt<sup>2</sup></span> cubiertos<br>';
+				echo '<span class="text-primary">'.$mt2_semicubiertos_min.' a '.$mt2_semicubiertos_max.' mt<sup>2</sup></span> semicubiertos'; ?>
 			</p>
 		</div>
 		<div class="col-sm-6 col-md-4">
@@ -76,7 +82,7 @@ $arq_name = $arq_post->post_title;
 		<?php endif; ?>
 		<div class="col-sm-12 col-md-4">
 			<?php if (types_render_field("desde-modelo")) : ?><p>Desde<br><span class="font-weight-bold text-primary">$<?php echo number_format(types_render_field("desde-modelo"), 0, ',', '.' ); ?> + IVA (10.5%)</span></p><?php endif; ?>
-			<?php $tiempo_de_ejecucion = types_render_field( "tiempo-de-ejecucion", array("raw"=>"true")); if ($tiempo_de_ejecucion) : ?><p>Tiempo de ejecución: <span class="display-2"><?php echo $tiempo_de_ejecucion; ?> días</span></p><?php endif; ?>
+			<?php $tiempo_de_ejecucion = types_render_field( "tiempo-de-ejecucion-meses", array("raw"=>"true")); if ($tiempo_de_ejecucion) : ?><p>Tiempo de ejecución: <span class="display-2"><?php echo $tiempo_de_ejecucion; ?> meses</span></p><?php endif; ?>
 		</div>
 	</div>
 

@@ -50,15 +50,20 @@
 
         $(document).delegate(".precio", "click", function() {
           $("#calcula-cuotas").show();
+					$("#precalificacion").show();
           $precio = document.getElementById("valor_total").value;
           $monto_a_financiar = document.getElementById("monto_a_financiar").value;
           $porcentaje = document.getElementById("no_cuotas").value;
-          $valor_total = format( "##.000,00", $(this).attr('precio') );
-          $valor_total_sin_centavos = $valor_total.substring(0,$valor_total.length - 3);
-          $valor_max_a_financiar = format( "##.000,00", $(this).attr('precio')*0.7);
-          $valor_max_a_financiar_sin_centavos = $valor_max_a_financiar.substring(0,$valor_max_a_financiar.length - 3);
-          document.getElementById("valor_total").value = $valor_total_sin_centavos;
-          document.getElementById("monto_a_financiar").placeholder = "Max $"+$valor_max_a_financiar_sin_centavos;
+          //$valor_total = format( "##.000,00", $(this).attr('precio') );
+					$valor_total = $(this).attr('precio');
+          $valor_total_formateado = numeral($valor_total).format('$0,0[.]00');
+					//$valor_total_sin_centavos = $valor_total.substring(0,$valor_total.length - 3);
+          //$valor_max_a_financiar = format( "##.000,00", $(this).attr('precio')*0.7);
+					$valor_max_a_financiar = $(this).attr('precio')*0.7;
+					$valor_max_a_financiar_format = numeral($valor_max_a_financiar).format('$0,0[.]00');
+          //$valor_max_a_financiar_sin_centavos = $valor_max_a_financiar.substring(0,$valor_max_a_financiar.length - 3);
+          document.getElementById("valor_total").value = $valor_total_formateado;
+          document.getElementById("monto_a_financiar").placeholder = "Max "+$valor_max_a_financiar_format;
         });
 
         var sel = document.getElementById('no_cuotas');
@@ -77,8 +82,10 @@
           var e = document.getElementById("no_cuotas");
           var strUser = e.options[e.selectedIndex].getAttribute("porcentaje");
           $porcentaje = strUser;
-          $monto_estimado_de_cuota = format( "##.000,00", ($monto_a_financiar*$porcentaje)/$no_cuotas );
-          $monto_estimado_de_cuota_formateado = $monto_estimado_de_cuota.substring(0,$monto_estimado_de_cuota.length - 3);
+          //$monto_estimado_de_cuota = format( "##.000,00", ($monto_a_financiar*$porcentaje)/$no_cuotas );
+					$monto_estimado_de_cuota =  ($monto_a_financiar*$porcentaje)/$no_cuotas;
+          //$monto_estimado_de_cuota_formateado = $monto_estimado_de_cuota.substring(0,$monto_estimado_de_cuota.length - 3);
+					$monto_estimado_de_cuota_formateado = numeral($monto_estimado_de_cuota).format('0,0');
           document.getElementById("monto_de_cuota").value = $monto_estimado_de_cuota_formateado;
         }
 
@@ -91,9 +98,10 @@
           $monto_a_financiar = parseInt(document.getElementById("monto_a_financiar").value);
           $no_cuotas = parseInt(document.getElementById("no_cuotas").value);
           $porcentaje = this.options[this.selectedIndex].getAttribute("porcentaje");
-          $monto_estimado_de_cuota = format( "##.000,00", ($monto_a_financiar*$porcentaje)/$no_cuotas );
-          $monto_estimado_de_cuota_formateado = $monto_estimado_de_cuota.substring(0,$monto_estimado_de_cuota.length - 3);
-          document.getElementById("monto_de_cuota").value = $monto_estimado_de_cuota_formateado;
+          //$monto_estimado_de_cuota = format( "##.000,00", ($monto_a_financiar*$porcentaje)/$no_cuotas );
+					$monto_estimado_de_cuota = ($monto_a_financiar*$porcentaje)/$no_cuotas;
+          //$monto_estimado_de_cuota_formateado = $monto_estimado_de_cuota.substring(0,$monto_estimado_de_cuota.length - 3);
+          document.getElementById("monto_de_cuota").value = $monto_estimado_de_cuota;
         };
       }
     }

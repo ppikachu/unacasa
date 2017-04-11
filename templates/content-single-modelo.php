@@ -371,7 +371,7 @@
 		<div class="text-center my-3">
 			<h4 class="text-primary">Nuestros Provedores</h4>
 			<p>Contamos con los mejores proveedores y materiales para tener la mayor calidad en tu hogar.</p>
-			<p>(imagen)</p>
+			<img class="img-fluid" src="<?php echo get_template_directory_uri ().'/dist/images/proveedores.png'; ?>">
 		</div>
 
 	</div>
